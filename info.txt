@@ -1,0 +1,11 @@
+Database name:
+alumni
+
+user panel:
+email: user@gmail.com
+password: user
+
+
+admin panel:
+email: admin@gmail.com
+password: admin
