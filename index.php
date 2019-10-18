@@ -162,12 +162,64 @@ if (strlen($_SESSION['login']) == 0) {
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
                     $cnt = 1;
                     if ($query->rowCount() > 0) {
-                        global $rC;
-                        $rC= $query->rowCount();
-                        echo "<br><h2>Total Slot1 rows: $rC</h2>";
+                        global $rC1;
+                        $rC1= $query->rowCount();
+                        echo "<br><h5>Total Slot1 rows: $rC1</h5>";
                     }
                     ?>
                 </div>
+
+                <!-- Slot2 Row Count -->
+                <div class="col-md-9">
+                    <?php
+                    //$email = $_SESSION['login'];
+                    $sql = "SELECT `id` FROM `slot2`";
+                    $query = $dbh->prepare($sql);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    $cnt = 1;
+                    if ($query->rowCount() > 0) {
+                        global $rC2;
+                        $rC2= $query->rowCount();
+                        echo "<br><h5>Total Slot2 rows: $rC2</h5>";
+                    }
+                    ?>
+                </div>
+
+                <!-- Slot3 Row Count -->
+                <div class="col-md-9">
+                    <?php
+                    //$email = $_SESSION['login'];
+                    $sql = "SELECT `id` FROM `slot3`";
+                    $query = $dbh->prepare($sql);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    $cnt = 1;
+                    if ($query->rowCount() > 0) {
+                        global $rC3;
+                        $rC3= $query->rowCount();
+                        echo "<br><h5>Total Slot3 rows: $rC3</h5>";
+                    }
+                    ?>
+                </div>
+
+                <!-- Slot4 Row Count -->
+                <div class="col-md-9">
+                    <?php
+                    //$email = $_SESSION['login'];
+                    $sql = "SELECT `id` FROM `slot4`";
+                    $query = $dbh->prepare($sql);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    $cnt = 1;
+                    if ($query->rowCount() > 0) {
+                        global $rC4;
+                        $rC4= $query->rowCount();
+                        echo "<br><h5>Total Slot4 rows: $rC4</h5>";
+                    }
+                    ?>
+                </div>
+
 
                 <?php
                 if (isset($_POST['submit'])) {
@@ -303,10 +355,40 @@ if (strlen($_SESSION['login']) == 0) {
                                             ?>
 
                                             <option value="<?php echo htmlentities($result->id);?>">
-                                                <?php echo htmlentities($result->name); ?> &nbsp; <?php echo $rem = 40-$rC;?> seat remaining</option>
+                                                <?php echo htmlentities($result->name); ?> &nbsp; </option>
                                         <?php }
                                     } ?>
                                 </select>
+                            </div>
+                        </div>
+
+                        <h4>Seat status</h4>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="input5">Slot 1</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input5"
+                                       name="" disabled value="<?php echo $rem1 = 40-$rC1;?> seats remaining">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="input6">Slot 2</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input6"
+                                       name="" disabled value="<?php echo $rem2 = 40-$rC2;?> seats remaining">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="input7">Slot 3</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input7"
+                                       name="" disabled value="<?php echo $rem2 = 40-$rC3;?> seats remaining">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="input8">Slot 4</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input8"
+                                       name="" disabled value="<?php echo $rem2 = 40-$rC4;?> seats remaining">
                             </div>
                         </div>
 
