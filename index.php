@@ -152,10 +152,57 @@ if (strlen($_SESSION['login']) == 0) {
                     ?>
                 </div>
 
+                <br><br><br><br>
+                <div class="col-md-9">
+                    <h3>Register for practical slot</h3>
+                    <form class="form-horizontal" action="" name="f1" method="post" style="padding-bottom: 100px;">
 
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="input1">Name</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" id="input1" name="name"
+                                       required>
+                            </div>
+                        </div>
 
-                <!-- Sidebar Widgets Column -->
-                <?php include 'includes/sidebar.php'; ?>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="input2">First Name</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" id="input2" name="fname"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="input3">Student ID</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" id="input3" name="sid"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="input4">Email</label>
+                            <div class="col-md-5">
+                                <input type="email" class="form-control" id="input4"
+                                       name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">&nbsp;</label>
+                            <div class="col-md-10">
+                                <button type="submit"
+                                        class="btn btn-custom waves-effect waves-light btn-md"
+                                        name="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+
             </div>
             <!-- /.row -->
 
