@@ -162,8 +162,17 @@ if (strlen($_SESSION['login']) == 0) {
                     $select = $_POST["select1"];
 
                     if ($select == "2") {
+                        $sql1 = "INSERT INTO slot1(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
+                        $query = $dbh->prepare($sql1);
+                    } else if ($select == "2") {
                         $sql2 = "INSERT INTO slot2(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
                         $query = $dbh->prepare($sql2);
+                    } else if ($select == "3") {
+                        $sql3 = "INSERT INTO slot3(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
+                        $query = $dbh->prepare($sql3);
+                    } else if ($select == "4") {
+                        $sql4 = "INSERT INTO slot4(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
+                        $query = $dbh->prepare($sql4);
                     }
 
                     $query->bindParam(':sname', $sname, PDO::PARAM_STR);
@@ -222,7 +231,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="input3">select practical slot</label>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <select name="select1" id="select1" required>
                                     <option value="">--Select--</option>
                                     <?php
@@ -237,14 +246,13 @@ if (strlen($_SESSION['login']) == 0) {
                                                  as $result) {
                                             ?>
 
-                                            <option value="<?php echo htmlentities($result->id); ?>">
-                                                <?php echo htmlentities($result->name); ?></option>
+                                            <option value="<?php echo htmlentities($result->id);?>">
+                                                <?php echo htmlentities($result->name); ?> &nbsp; seat remaining</option>
                                         <?php }
                                     } ?>
                                 </select>
                             </div>
                         </div>
-
 
                         <div class="form-group">
                             <label class="col-md-2 control-label">&nbsp;</label>
