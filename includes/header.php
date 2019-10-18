@@ -17,9 +17,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact-us.php">Contact us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.php">Register</a>
-                </li>
+                <?php
+                if (strlen($_SESSION['login']) == 0) {
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php">Register</a>
+                    </li>
+                <?php } else {
+                } ?>
                 <?php if (isset($_SESSION['login'])): ?>
                     <li class="nav-item">
                         <?php
