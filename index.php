@@ -36,7 +36,7 @@ if (strlen($_SESSION['login']) == 0) {
                 <div class="col-md-9">
                     <?php
                     $email = $_SESSION['login'];
-                    $sql = "SELECT `name` FROM `user` WHERE `email`=:email AND `is_active`=1";
+                    $sql = "SELECT `name` FROM `group1` WHERE `email`=:email";
                     $query = $dbh->prepare($sql);
                     $query->bindParam(':email', $email, PDO::PARAM_STR);
                     $query->execute();

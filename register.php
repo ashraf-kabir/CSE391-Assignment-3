@@ -2,24 +2,19 @@
 session_start();
 include('includes/config.php');
 if (isset($_POST['signup'])) {
-    $fname = $_POST['name'];
-    $lname = $_POST['fname'];
+    $name = $_POST['username'];
+    $fname = $_POST['fname'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);
     $sid = $_POST['sid'];
 
-    //condition
-    $sgroup = "group1";
-    //condition
-    $sql = "INSERT INTO group1(`fname`,`lname`,`email`,`password`) VALUES(:fname,:lname,:email,:password)";
-
+    $sql = "INSERT INTO group1(`name`,`fname`,`email`,`password`,`sid`) VALUES(:username,:fname,:email,:password,:sid)";
     $query = $dbh->prepare($sql);
-    $query->bindParam(':name', $fname, PDO::PARAM_STR);
+    $query->bindParam(':name', $name, PDO::PARAM_STR);
     $query->bindParam(':fname', $fname, PDO::PARAM_STR);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
     $query->bindParam(':sid', $sid, PDO::PARAM_STR);
-    $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
@@ -27,6 +22,8 @@ if (isset($_POST['signup'])) {
     } else {
         echo "<script>alert('Something went wrong');</script>";
     }
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -52,6 +49,7 @@ if (isset($_POST['signup'])) {
             function disablePrev() {
                 window.history.forward()
             }
+
             window.onload = disablePrev();
             window.onpageshow = function (evt) {
                 if (evt.persisted) disableBack()
@@ -78,7 +76,7 @@ if (isset($_POST['signup'])) {
                     <form class="form-horizontal" method="post" name="signup">
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <input class="form-control" type="text" required="" name="name"
+                                <input class="form-control" type="text" required="" name="username"
                                        placeholder="Name">
                             </div>
                         </div>
@@ -97,17 +95,6 @@ if (isset($_POST['signup'])) {
 
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <select name="sgroup" id="sgroup">
-                                    <option value="">Group1</option>
-                                    <option value="">Group2</option>
-                                    <option value="">Group3</option>
-                                    <option value="">Group4</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group ">
-                            <div class="col-md-7">
                                 <input class="form-control" type="email" required="" name="email"
                                        placeholder="Email">
                             </div>
@@ -120,17 +107,11 @@ if (isset($_POST['signup'])) {
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-7">
-                                <input class="form-control" type="password" name="repass" required=""
-                                       placeholder="Re-type Password" autocomplete="off">
-                            </div>
-                        </div>
-
                         <div class="form-group account-btn text-center m-t-10">
                             <div class="col-md-7">
                                 <button class="btn w-md btn-bordered btn-primary waves-effect waves-light"
-                                        type="submit" name="signup"">Register
+                                        type="submit" name="signup"
+                                ">Register
                                 </button>
                             </div>
                         </div>
