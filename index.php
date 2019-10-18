@@ -152,6 +152,34 @@ if (strlen($_SESSION['login']) == 0) {
                     ?>
                 </div>
 
+                <?php
+                if (isset($_POST['submit'])) {
+                    $sname = $_POST['name'];
+                    $sfname = $_POST['name'];
+                    $sid = $_POST['name'];
+                    $semail = $_POST['name'];
+
+                    $select = $_POST["select1"];
+
+                    $sql = "INSERT INTO slots(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
+                    $query = $dbh->prepare($sql);
+
+                    $query->bindParam(':sname', $sname, PDO::PARAM_STR);
+                    $query->bindParam(':sfname', $sfname, PDO::PARAM_STR);
+                    $query->bindParam(':sid', $sid, PDO::PARAM_STR);
+                    $query->bindParam(':semail', $semail, PDO::PARAM_STR);
+                    //$query->bindParam(':select', $select, PDO::PARAM_STR);
+
+                    $query->execute();
+                    $lastInsertId = $dbh->lastInsertId();
+                    if ($lastInsertId) {
+                        echo "<script>alert('Slot added successfully')</script>";
+                    } else {
+                        echo "<script>alert('Something went wrong')</script>";
+                    }
+                }
+                ?>
+
                 <br><br><br><br>
                 <div class="col-md-9">
                     <h3>Register for practical slot</h3>
@@ -188,6 +216,33 @@ if (strlen($_SESSION['login']) == 0) {
                                        name="email" required>
                             </div>
                         </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="input3">select practical slot</label>
+                            <div class="col-md-5">
+                                <select name="select1" id="select1">
+                                    <option value="">--Select--</option>
+                                    <?php
+                                    $sql = "SELECT slots.id, slots.name FROM slots";
+                                    $query = $dbh->prepare($sql);
+                                    //$query->bindParam(':id', $id, PDO::PARAM_STR);
+                                    $query->execute();
+                                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                    if ($query->rowCount() > 0) {
+                                        foreach ($results
+
+                                                 as $result) {
+                                            ?>
+
+                                            <option value="<?php echo htmlentities($result->id); ?>">
+                                                <?php echo htmlentities($result->name); ?></option>
+                                        <?php }
+                                    } ?>
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <label class="col-md-2 control-label">&nbsp;</label>
