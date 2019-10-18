@@ -2,19 +2,34 @@
 session_start();
 include('includes/config.php');
 if (isset($_POST['signup'])) {
-    $name = $_POST['username'];
+    $uname = $_POST['username'];
     $fname = $_POST['fname'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);
     $sid = $_POST['sid'];
 
-    $sql = "INSERT INTO group1(`name`,`fname`,`email`,`password`,`sid`) VALUES(:username,:fname,:email,:password,:sid)";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':name', $name, PDO::PARAM_STR);
+    $sgroup = $_POST["sgroup"];
+
+    if ($sgroup == "g1") {
+        $sql1 = "INSERT INTO groupa(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
+        $query = $dbh->prepare($sql1);
+    } elseif ($sgroup == "g2") {
+        $sql2 = "INSERT INTO groupb(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
+        $query = $dbh->prepare($sql2);
+    } elseif ($sgroup == "g3") {
+        $sql3 = "INSERT INTO groupc(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
+        $query = $dbh->prepare($sql3);
+    } elseif ($sgroup == "g4") {
+        $sql4 = "INSERT INTO groupd(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
+        $query = $dbh->prepare($sql4);
+    }
+
+    $query->bindParam(':uname', $uname, PDO::PARAM_STR);
     $query->bindParam(':fname', $fname, PDO::PARAM_STR);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
     $query->bindParam(':sid', $sid, PDO::PARAM_STR);
+    $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
@@ -90,6 +105,17 @@ if (isset($_POST['signup'])) {
                             <div class="col-md-7">
                                 <input class="form-control" type="text" required="" name="sid"
                                        placeholder="Student ID">
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <div class="col-md-7">
+                                <select name="sgroup" id="sgroup">
+                                    <option value="g1">Group 1</option>
+                                    <option value="g2">Group 2</option>
+                                    <option value="g3">Group 3</option>
+                                    <option value="g4">Group 4</option>
+                                </select>
                             </div>
                         </div>
 

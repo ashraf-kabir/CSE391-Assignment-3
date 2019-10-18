@@ -4,7 +4,7 @@ include('includes/config.php');
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
-    $sql = "SELECT email,password FROM `group1` WHERE email=:email and password=:password";
+    $sql = "SELECT email,password FROM `groupa` WHERE email=:email and password=:password";
     $query = $dbh->prepare($sql);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
