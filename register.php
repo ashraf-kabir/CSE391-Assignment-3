@@ -63,7 +63,7 @@ if (isset($_POST['login'])) {
             <div class="col-md-6">
                 <div class="account-content">
                     <br>
-                    <h2 style="font-family: sans-serif">Log in</h2>
+                    <h2 style="font-family: sans-serif">Register</h2>
                     <br>
                     <form class="form-horizontal" method="post">
                         <div class="form-group ">

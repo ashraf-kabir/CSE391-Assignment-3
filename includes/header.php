@@ -17,6 +17,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact-us.php">Contact us</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.php">Register</a>
+                </li>
                 <?php if (isset($_SESSION['login'])): ?>
                     <li class="nav-item">
                         <?php
