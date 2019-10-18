@@ -161,7 +161,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                     $select = $_POST["select1"];
 
-                    if ($select == "2") {
+                    if ($select == "1") {
                         $sql1 = "INSERT INTO slot1(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
                         $query1 = $dbh->prepare($sql1);
                         $query1->bindParam(':sname', $sname, PDO::PARAM_STR);
