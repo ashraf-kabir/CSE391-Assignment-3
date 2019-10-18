@@ -10,19 +10,8 @@ if (isset($_POST['signup'])) {
 
     $sgroup = $_POST["sgroup"];
 
-    if ($sgroup == "g1") {
-        $sql1 = "INSERT INTO groupa(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
-        $query = $dbh->prepare($sql1);
-    } elseif ($sgroup == "g2") {
-        $sql2 = "INSERT INTO groupb(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
-        $query = $dbh->prepare($sql2);
-    } elseif ($sgroup == "g3") {
-        $sql3 = "INSERT INTO groupc(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
-        $query = $dbh->prepare($sql3);
-    } elseif ($sgroup == "g4") {
-        $sql4 = "INSERT INTO groupd(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
-        $query = $dbh->prepare($sql4);
-    }
+    $sql = "INSERT INTO users(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
+    $query = $dbh->prepare($sql);
 
     $query->bindParam(':uname', $uname, PDO::PARAM_STR);
     $query->bindParam(':fname', $fname, PDO::PARAM_STR);
