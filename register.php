@@ -94,6 +94,18 @@ if (isset($_POST['signup'])) {
                                        placeholder="Student ID">
                             </div>
                         </div>
+
+                        <div class="form-group ">
+                            <div class="col-md-7">
+                                <select name="sgroup" id="sgroup">
+                                    <option value="">Group1</option>
+                                    <option value="">Group2</option>
+                                    <option value="">Group3</option>
+                                    <option value="">Group4</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                         <div class="form-group ">
                             <div class="col-md-7">
                                 <input class="form-control" type="email" required="" name="email"
@@ -105,6 +117,13 @@ if (isset($_POST['signup'])) {
                             <div class="col-md-7">
                                 <input class="form-control" type="password" name="password" required=""
                                        placeholder="Password" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-7">
+                                <input class="form-control" type="password" name="repass" required=""
+                                       placeholder="Re-type Password" autocomplete="off">
                             </div>
                         </div>
 
