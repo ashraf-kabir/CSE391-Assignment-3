@@ -75,11 +75,29 @@ if (isset($_POST['signup'])) {
                     <br>
                     <h2 style="font-family: sans-serif">Register</h2>
                     <br>
-                    <form class="form-horizontal" method="post">
+                    <form class="form-horizontal" method="post" name="signup">
+                        <div class="form-group ">
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" required="" name="name"
+                                       placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" required="" name="fname"
+                                       placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" required="" name="sid"
+                                       placeholder="Student ID">
+                            </div>
+                        </div>
                         <div class="form-group ">
                             <div class="col-md-7">
                                 <input class="form-control" type="email" required="" name="email"
-                                       placeholder="Email" autocomplete="off">
+                                       placeholder="Email">
                             </div>
                         </div>
 
@@ -93,7 +111,7 @@ if (isset($_POST['signup'])) {
                         <div class="form-group account-btn text-center m-t-10">
                             <div class="col-md-7">
                                 <button class="btn w-md btn-bordered btn-primary waves-effect waves-light"
-                                        type="submit" name="login">Log In
+                                        type="submit" name="signup"">Register
                                 </button>
                             </div>
                         </div>
