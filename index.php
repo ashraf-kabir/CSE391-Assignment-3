@@ -163,7 +163,7 @@ if (strlen($_SESSION['login']) == 0) {
                     $cnt = 1;
                     if ($query->rowCount() > 0) {
                         global $rC1;
-                        $rC1= $query->rowCount();
+                        $rC1 = $query->rowCount();
                         echo "<br><h5>Total Slot1 rows: $rC1</h5>";
                     }
                     ?>
@@ -180,7 +180,7 @@ if (strlen($_SESSION['login']) == 0) {
                     $cnt = 1;
                     if ($query->rowCount() > 0) {
                         global $rC2;
-                        $rC2= $query->rowCount();
+                        $rC2 = $query->rowCount();
                         echo "<br><h5>Total Slot2 rows: $rC2</h5>";
                     }
                     ?>
@@ -197,7 +197,7 @@ if (strlen($_SESSION['login']) == 0) {
                     $cnt = 1;
                     if ($query->rowCount() > 0) {
                         global $rC3;
-                        $rC3= $query->rowCount();
+                        $rC3 = $query->rowCount();
                         echo "<br><h5>Total Slot3 rows: $rC3</h5>";
                     }
                     ?>
@@ -214,7 +214,7 @@ if (strlen($_SESSION['login']) == 0) {
                     $cnt = 1;
                     if ($query->rowCount() > 0) {
                         global $rC4;
-                        $rC4= $query->rowCount();
+                        $rC4 = $query->rowCount();
                         echo "<br><h5>Total Slot4 rows: $rC4</h5>";
                     }
                     ?>
@@ -354,8 +354,9 @@ if (strlen($_SESSION['login']) == 0) {
                                                  as $result) {
                                             ?>
 
-                                            <option value="<?php echo htmlentities($result->id);?>">
-                                                <?php echo htmlentities($result->name); ?> &nbsp; </option>
+                                            <option value="<?php echo htmlentities($result->id); ?>">
+                                                <?php echo htmlentities($result->name); ?>
+                                            </option>
                                         <?php }
                                     } ?>
                                 </select>
@@ -367,28 +368,28 @@ if (strlen($_SESSION['login']) == 0) {
                             <label class="col-md-2 control-label" for="input5">Slot 1</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input5"
-                                       name="" disabled value="<?php echo $rem1 = 40-$rC1;?> seats remaining">
+                                       name="" disabled value="<?php echo $rem1 = 40 - $rC1; ?> seats remaining">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="input6">Slot 2</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input6"
-                                       name="" disabled value="<?php echo $rem2 = 40-$rC2;?> seats remaining">
+                                       name="" disabled value="<?php echo $rem2 = 40 - $rC2; ?> seats remaining">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="input7">Slot 3</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input7"
-                                       name="" disabled value="<?php echo $rem2 = 40-$rC3;?> seats remaining">
+                                       name="" disabled value="<?php echo $rem2 = 40 - $rC3; ?> seats remaining">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="input8">Slot 4</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input8"
-                                       name="" disabled value="<?php echo $rem2 = 40-$rC4;?> seats remaining">
+                                       name="" disabled value="<?php echo $rem2 = 40 - $rC4; ?> seats remaining">
                             </div>
                         </div>
 
