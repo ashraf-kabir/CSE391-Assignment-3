@@ -4,25 +4,14 @@ include('includes/config.php');
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
-    $sgroup = $_POST["sgroup"];
+    //$sgroup = $_POST["sgroup"];
 
-    if ($sgroup == "g1") {
-        $sql1 = "SELECT email,password,sgroup FROM `groupa` WHERE email=:email, password=:password AND sgroup=:sgroup";
-        $query = $dbh->prepare($sql1);
-    } elseif ($sgroup == "g2") {
-        $sql2 = "SELECT email,password,sgroup FROM `groupb` WHERE email=:email, password=:password AND sgroup=:sgroup";
-        $query = $dbh->prepare($sql2);
-    } elseif ($sgroup == "g3") {
-        $sql3 = "SELECT email,password,sgroup FROM `groupc` WHERE email=:email, password=:password AND sgroup=:sgroup";
-        $query = $dbh->prepare($sql3);
-    } elseif ($sgroup == "g4") {
-        $sql4 = "SELECT email,password,sgroup FROM `groupd` WHERE email=:email, password=:password AND sgroup=:sgroup";
-        $query = $dbh->prepare($sql4);
-    }
+    $sql = "SELECT email,password FROM `users` WHERE email=:email AND password=:password";
+    $query = $dbh->prepare($sql);
 
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
-    $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
+    //$query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
     $query->execute();
     $results = $query->fetchAll(PDO::FETCH_OBJ);
 
@@ -95,16 +84,7 @@ if (isset($_POST['login'])) {
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-7">
-                                <select name="sgroup" id="sgroup">
-                                    <option value="g1">Group A</option>
-                                    <option value="g2">Group B</option>
-                                    <option value="g3">Group C</option>
-                                    <option value="g4">Group D</option>
-                                </select>
-                            </div>
-                        </div>
+
 
                         <div class="form-group account-btn text-center m-t-10">
                             <div class="col-md-7">
