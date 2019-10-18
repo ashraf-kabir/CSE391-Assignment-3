@@ -1,21 +1,24 @@
 <?php
 session_start();
 include('includes/config.php');
-if (isset($_POST['login'])) {
+if (isset($_POST['signup'])) {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);
-    $sql = "SELECT email,password FROM `user` WHERE email=:email and password=:password";
+
+    $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`) VALUES(:fname,:lname,:email,:password)";
     $query = $dbh->prepare($sql);
+    $query->bindParam(':fname', $fname, PDO::PARAM_STR);
+    $query->bindParam(':lname', $lname, PDO::PARAM_STR);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
     $query->execute();
-    $results = $query->fetchAll(PDO::FETCH_OBJ);
-
-    if ($query->rowCount() > 0) {
-        $_SESSION['login'] = $_POST['email'];
-        echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+    $lastInsertId = $dbh->lastInsertId();
+    if ($lastInsertId) {
+        echo "<script>alert('Registration successful');</script>";
     } else {
-        echo "<script>alert('Invalid info');</script>";
+        echo "<script>alert('Something went wrong');</script>";
     }
 }
 ?>
