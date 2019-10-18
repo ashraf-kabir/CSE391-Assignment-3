@@ -152,6 +152,23 @@ if (strlen($_SESSION['login']) == 0) {
                     ?>
                 </div>
 
+                <!-- Slot1 Row Count -->
+                <div class="col-md-9">
+                    <?php
+                    //$email = $_SESSION['login'];
+                    $sql = "SELECT `id` FROM `slot1`";
+                    $query = $dbh->prepare($sql);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    $cnt = 1;
+                    if ($query->rowCount() > 0) {
+                        global $rC;
+                        $rC= $query->rowCount();
+                        echo "<br><h2>Total Slot1 rows: $rC</h2>";
+                    }
+                    ?>
+                </div>
+
                 <?php
                 if (isset($_POST['submit'])) {
                     $sname = $_POST['name'];
@@ -286,7 +303,7 @@ if (strlen($_SESSION['login']) == 0) {
                                             ?>
 
                                             <option value="<?php echo htmlentities($result->id);?>">
-                                                <?php echo htmlentities($result->name); ?> &nbsp; seat remaining</option>
+                                                <?php echo htmlentities($result->name); ?> &nbsp; <?php echo $rem = 40-$rC;?> seat remaining</option>
                                         <?php }
                                     } ?>
                                 </select>
