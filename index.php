@@ -163,31 +163,70 @@ if (strlen($_SESSION['login']) == 0) {
 
                     if ($select == "2") {
                         $sql1 = "INSERT INTO slot1(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
-                        $query = $dbh->prepare($sql1);
+                        $query1 = $dbh->prepare($sql1);
+                        $query1->bindParam(':sname', $sname, PDO::PARAM_STR);
+                        $query1->bindParam(':sfname', $sfname, PDO::PARAM_STR);
+                        $query1->bindParam(':sid', $sid, PDO::PARAM_STR);
+                        $query1->bindParam(':semail', $semail, PDO::PARAM_STR);
+                        //$query->bindParam(':select', $select, PDO::PARAM_STR);
+
+                        $query1->execute();
+                        $lastInsertId = $dbh->lastInsertId();
+                        if ($lastInsertId) {
+                            echo "<script>alert('Slot added successfully')</script>";
+                        } else {
+                            echo "<script>alert('Something went wrong')</script>";
+                        }
                     } else if ($select == "2") {
                         $sql2 = "INSERT INTO slot2(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
-                        $query = $dbh->prepare($sql2);
+                        $query2 = $dbh->prepare($sql2);
+                        $query2->bindParam(':sname', $sname, PDO::PARAM_STR);
+                        $query2->bindParam(':sfname', $sfname, PDO::PARAM_STR);
+                        $query2->bindParam(':sid', $sid, PDO::PARAM_STR);
+                        $query2->bindParam(':semail', $semail, PDO::PARAM_STR);
+                        //$query->bindParam(':select', $select, PDO::PARAM_STR);
+
+                        $query2->execute();
+                        $lastInsertId = $dbh->lastInsertId();
+                        if ($lastInsertId) {
+                            echo "<script>alert('Slot added successfully')</script>";
+                        } else {
+                            echo "<script>alert('Something went wrong')</script>";
+                        }
                     } else if ($select == "3") {
                         $sql3 = "INSERT INTO slot3(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
-                        $query = $dbh->prepare($sql3);
+                        $query3 = $dbh->prepare($sql3);
+                        $query3->bindParam(':sname', $sname, PDO::PARAM_STR);
+                        $query3->bindParam(':sfname', $sfname, PDO::PARAM_STR);
+                        $query3->bindParam(':sid', $sid, PDO::PARAM_STR);
+                        $query3->bindParam(':semail', $semail, PDO::PARAM_STR);
+                        //$query->bindParam(':select', $select, PDO::PARAM_STR);
+
+                        $query3->execute();
+                        $lastInsertId = $dbh->lastInsertId();
+                        if ($lastInsertId) {
+                            echo "<script>alert('Slot added successfully')</script>";
+                        } else {
+                            echo "<script>alert('Something went wrong')</script>";
+                        }
                     } else if ($select == "4") {
                         $sql4 = "INSERT INTO slot4(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
-                        $query = $dbh->prepare($sql4);
+                        $query4 = $dbh->prepare($sql4);
+                        $query4->bindParam(':sname', $sname, PDO::PARAM_STR);
+                        $query4->bindParam(':sfname', $sfname, PDO::PARAM_STR);
+                        $query4->bindParam(':sid', $sid, PDO::PARAM_STR);
+                        $query4->bindParam(':semail', $semail, PDO::PARAM_STR);
+                        //$query->bindParam(':select', $select, PDO::PARAM_STR);
+
+                        $query4->execute();
+                        $lastInsertId = $dbh->lastInsertId();
+                        if ($lastInsertId) {
+                            echo "<script>alert('Slot added successfully')</script>";
+                        } else {
+                            echo "<script>alert('Something went wrong')</script>";
+                        }
                     }
 
-                    $query->bindParam(':sname', $sname, PDO::PARAM_STR);
-                    $query->bindParam(':sfname', $sfname, PDO::PARAM_STR);
-                    $query->bindParam(':sid', $sid, PDO::PARAM_STR);
-                    $query->bindParam(':semail', $semail, PDO::PARAM_STR);
-                    //$query->bindParam(':select', $select, PDO::PARAM_STR);
-
-                    $query->execute();
-                    $lastInsertId = $dbh->lastInsertId();
-                    if ($lastInsertId) {
-                        echo "<script>alert('Slot added successfully')</script>";
-                    } else {
-                        echo "<script>alert('Something went wrong')</script>";
-                    }
                 }
                 ?>
 
