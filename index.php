@@ -147,7 +147,7 @@ if (strlen($_SESSION['login']) == 0) {
                     $cnt = 1;
                     if ($query->rowCount() > 0) {
                         $rC = $query->rowCount();
-                        echo "<br><h2>total rows: $rC</h2>";
+                        echo "<br><h2>Total rows: $rC</h2>";
                     }
                     ?>
                 </div>
