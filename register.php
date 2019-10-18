@@ -2,17 +2,24 @@
 session_start();
 include('includes/config.php');
 if (isset($_POST['signup'])) {
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
+    $fname = $_POST['name'];
+    $lname = $_POST['fname'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);
+    $sid = $_POST['sid'];
 
-    $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`) VALUES(:fname,:lname,:email,:password)";
+    //condition
+    $sgroup = "group1";
+    //condition
+    $sql = "INSERT INTO group1(`fname`,`lname`,`email`,`password`) VALUES(:fname,:lname,:email,:password)";
+
     $query = $dbh->prepare($sql);
+    $query->bindParam(':name', $fname, PDO::PARAM_STR);
     $query->bindParam(':fname', $fname, PDO::PARAM_STR);
-    $query->bindParam(':lname', $lname, PDO::PARAM_STR);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
+    $query->bindParam(':sid', $sid, PDO::PARAM_STR);
+    $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
