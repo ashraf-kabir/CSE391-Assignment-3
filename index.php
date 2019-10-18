@@ -155,14 +155,16 @@ if (strlen($_SESSION['login']) == 0) {
                 <?php
                 if (isset($_POST['submit'])) {
                     $sname = $_POST['name'];
-                    $sfname = $_POST['name'];
-                    $sid = $_POST['name'];
-                    $semail = $_POST['name'];
+                    $sfname = $_POST['fname'];
+                    $sid = $_POST['sid'];
+                    $semail = $_POST['email'];
 
                     $select = $_POST["select1"];
 
-                    $sql = "INSERT INTO slots(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
-                    $query = $dbh->prepare($sql);
+                    if ($select == "2") {
+                        $sql2 = "INSERT INTO slot2(sname,sfname,sid,semail) VALUES(:sname,:sfname,:sid,:semail)";
+                        $query = $dbh->prepare($sql2);
+                    }
 
                     $query->bindParam(':sname', $sname, PDO::PARAM_STR);
                     $query->bindParam(':sfname', $sfname, PDO::PARAM_STR);
@@ -221,7 +223,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="input3">select practical slot</label>
                             <div class="col-md-5">
-                                <select name="select1" id="select1">
+                                <select name="select1" id="select1" required>
                                     <option value="">--Select--</option>
                                     <?php
                                     $sql = "SELECT slots.id, slots.name FROM slots";
