@@ -7,7 +7,7 @@ if (isset($_POST['login'])) {
     $sgroup = $_POST["sgroup"];
 
     if ($sgroup == "g1") {
-        $sql1 = "SELECT email,password,sgroup FROM `groupa` WHERE email=:email AND password=:password";
+        $sql1 = "SELECT email,password,sgroup FROM `groupa` WHERE email=:email, password=:password AND sgroup=:sgroup";
         $query = $dbh->prepare($sql1);
     } elseif ($sgroup == "g2") {
         $sql2 = "SELECT email,password,sgroup FROM `groupb` WHERE email=:email, password=:password AND sgroup=:sgroup";
