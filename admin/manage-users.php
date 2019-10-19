@@ -7,7 +7,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 } else {
     if (isset($_REQUEST['del'])) {
         $delid = intval($_GET['del']);
-        $sql = "DELETE FROM `user` WHERE id=:delid";
+        $sql = "DELETE FROM `users` WHERE id=:delid";
         $query = $dbh->prepare($sql);
         $query->bindParam(':delid', $delid, PDO::PARAM_STR);
         $query->execute();
@@ -91,19 +91,17 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>ID</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
-                                                    <th>Department</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
+                                                    <th>Student ID</th>
+                                                    <th>Group</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                $sql = "SELECT * FROM `user` WHERE `is_active`=1";
+                                                $sql = "SELECT * FROM `users` WHERE `is_active`=1";
                                                 $query = $dbh->prepare($sql);
                                                 $query->execute();
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -112,12 +110,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     foreach ($results as $result) { ?>
                                                         <tr>
                                                             <th scope="row"><?php echo htmlentities($cnt); ?></th>
-                                                            <td><?php echo htmlentities($result->id); ?></td>
                                                             <td><?php echo htmlentities($result->name); ?></td>
                                                             <td><?php echo htmlentities($result->email); ?></td>
-                                                            <td><?php echo htmlentities($result->department); ?></td>
-                                                            <td><?php echo htmlentities($result->phone); ?></td>
-                                                            <td><?php echo htmlentities($result->address); ?></td>
+                                                            <td><?php echo htmlentities($result->sid); ?></td>
+                                                            <td><?php echo htmlentities($result->sgroup); ?></td>
                                                             <td>
                                                                 <a href="edit-user.php?id=<?php echo $result->id; ?>">edit</a>
                                                             </td>
