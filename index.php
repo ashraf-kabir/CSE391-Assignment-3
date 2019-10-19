@@ -58,7 +58,7 @@ if (strlen($_SESSION['login']) == 0) {
                 <div class="col-md-9">
                     <?php
                     $email = $_SESSION['login'];
-                    $sql = "SELECT `name` FROM `users` WHERE `email`=:email";
+                    $sql = "SELECT `fname`,`lname` FROM `users` WHERE `email`=:email";
                     $query = $dbh->prepare($sql);
                     $query->bindParam(':email', $email, PDO::PARAM_STR);
                     $query->execute();
@@ -67,7 +67,10 @@ if (strlen($_SESSION['login']) == 0) {
                     if ($query->rowCount() > 0) {
                         foreach ($results
                                  as $result) {
-                            echo "<br><h1>Log in successful $result->name</h1>";
+                            $fname = $result->fname;
+                            $lname = $result->lname;
+                            $name = $fname." ".$lname;
+                            echo "<br><h1>Log in successful $name</h1>";
                         }
                     }
                     ?>
@@ -76,33 +79,41 @@ if (strlen($_SESSION['login']) == 0) {
                 <!-- Slot1 Row Count -->
                 <div class="col-md-9">
                     <?php
-                    //$email = $_SESSION['login'];
-                    $sql = "SELECT `id` FROM `slot1`";
+                    $email = $_SESSION['login'];
+                    $slot = "1";
+                    $sql = "SELECT `slot` FROM `users` WHERE email=:email AND slot=:slot";
                     $query = $dbh->prepare($sql);
+                    $query->bindParam(':email', $email, PDO::PARAM_STR);
+                    $query->bindParam(':slot', $slot, PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
-                    $cnt = 1;
                     if ($query->rowCount() > 0) {
                         global $rC1;
                         $rC1 = $query->rowCount();
-                        //echo "<br><h5>Total Slot1 rows: $rC1</h5>";
+                        echo "<h5>Slot 1 total rows: $rC1</h5>";
+                    } else {
+                        echo "<h5>Slot 1 total rows: 0</h5>";
                     }
                     ?>
                 </div>
 
-                <!-- Slot2 Row Count -->
+                <!-- Slot1 Row Count -->
                 <div class="col-md-9">
                     <?php
-                    //$email = $_SESSION['login'];
-                    $sql = "SELECT `id` FROM `slot2`";
+                    $email = $_SESSION['login'];
+                    $slot = "2";
+                    $sql = "SELECT `slot` FROM `users` WHERE email=:email AND slot=:slot";
                     $query = $dbh->prepare($sql);
+                    $query->bindParam(':email', $email, PDO::PARAM_STR);
+                    $query->bindParam(':slot', $slot, PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
-                    $cnt = 1;
                     if ($query->rowCount() > 0) {
                         global $rC2;
                         $rC2 = $query->rowCount();
-                        //echo "<br><h5>Total Slot2 rows: $rC2</h5>";
+                        echo "<h5>Slot 2 total rows: $rC2</h5>";
+                    } else {
+                        echo "<h5>Slot 2 total rows: 0</h5>";
                     }
                     ?>
                 </div>
@@ -110,16 +121,20 @@ if (strlen($_SESSION['login']) == 0) {
                 <!-- Slot3 Row Count -->
                 <div class="col-md-9">
                     <?php
-                    //$email = $_SESSION['login'];
-                    $sql = "SELECT `id` FROM `slot3`";
+                    $email = $_SESSION['login'];
+                    $slot = "3";
+                    $sql = "SELECT `slot` FROM `users` WHERE email=:email AND slot=:slot";
                     $query = $dbh->prepare($sql);
+                    $query->bindParam(':email', $email, PDO::PARAM_STR);
+                    $query->bindParam(':slot', $slot, PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
-                    $cnt = 1;
                     if ($query->rowCount() > 0) {
                         global $rC3;
                         $rC3 = $query->rowCount();
-                        //echo "<br><h5>Total Slot3 rows: $rC3</h5>";
+                        echo "<h5>Slot 3 total rows: $rC3</h5>";
+                    } else {
+                        echo "<h5>Slot 3 total rows: 0</h5>";
                     }
                     ?>
                 </div>
@@ -127,24 +142,23 @@ if (strlen($_SESSION['login']) == 0) {
                 <!-- Slot4 Row Count -->
                 <div class="col-md-9">
                     <?php
-                    //$email = $_SESSION['login'];
-                    $sql = "SELECT `id` FROM `slot4`";
+                    $email = $_SESSION['login'];
+                    $slot = "4";
+                    $sql = "SELECT `slot` FROM `users` WHERE email=:email AND slot=:slot";
                     $query = $dbh->prepare($sql);
+                    $query->bindParam(':email', $email, PDO::PARAM_STR);
+                    $query->bindParam(':slot', $slot, PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
-                    $cnt = 1;
                     if ($query->rowCount() > 0) {
                         global $rC4;
                         $rC4 = $query->rowCount();
-                        //echo "<br><h5>Total Slot4 rows: $rC4</h5>";
+                        echo "<h5>Slot 4 total rows: $rC4</h5>";
+                    } else {
+                        echo "<h5>Slot 4 total rows: 0</h5>";
                     }
                     ?>
                 </div>
-
-                <?php
-                //$email = $_SESSION['login'];
-
-                ?>
 
                 <div class="col-md-9">
                     <h3>Register for practical slot</h3>
@@ -246,14 +260,24 @@ if (strlen($_SESSION['login']) == 0) {
                         <label class="col-md-2 control-label" for="input5">Slot 1</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="input5"
-                                   name="" disabled value="<?php echo $rem1 = 40 - $rC1; ?> seats remaining">
+                                   name="" disabled value="<?php
+                            if ($rC1 == "0") {
+                                echo $rem1 = 40;
+                            } else {
+                                echo $rem1 = 40 - $rC1;
+                            } ?> seats remaining">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="input6">Slot 2</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="input6"
-                                   name="" disabled value="<?php echo $rem2 = 40 - $rC2; ?> seats remaining">
+                                   name="" disabled value="<?php
+                            if ($rC2 == "0") {
+                                echo $rem1 = 40;
+                            } else {
+                                echo $rem1 = 40 - $rC2;
+                            } ?> seats remaining">
                         </div>
                     </div>
                     <div class="form-group">
