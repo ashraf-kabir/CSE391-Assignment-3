@@ -33,8 +33,8 @@
                     <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i>
                         <span>Groups</span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="add-jobs.php">Add New Group</a></li>
-                        <li><a href="manage-jobs.php">Manage Groups</a></li>
+                        <li><a href="add-groups.php">Add Groups</a></li>
+                        <li><a href="manage-groups.php">Manage Groups</a></li>
                     </ul>
                 </li>
 

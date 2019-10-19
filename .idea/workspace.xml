@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcefdb31-3438-4e9a-99ab-d5ed1828a64f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/add-groups.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/edit-groups.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/manage-groups.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add-slots.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add-slots.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/edit-slots.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/edit-slots.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/includes/leftsidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/leftsidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/manage-slots.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/manage-slots.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +72,7 @@
       <workItem from="1571473768016" duration="786000" />
       <workItem from="1571476301268" duration="908000" />
       <workItem from="1571477242299" duration="8000" />
-      <workItem from="1571483359003" duration="10902000" />
+      <workItem from="1571483359003" duration="12405000" />
     </task>
     <servers />
   </component>
