@@ -152,6 +152,87 @@ if (strlen($_SESSION['login']) == 0) {
                     ?>
                 </div>
 
+
+
+
+                <!-- Group1 Row Count -->
+                <div class="col-md-9">
+                    <?php
+                    $sgroup = "1";
+                    $sql = "SELECT `sgroup` FROM `users` WHERE sgroup=:sgroup";
+                    $query = $dbh->prepare($sql);
+                    $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    global $rG1;
+                    $rG1 = $query->rowCount();
+                    if ($rG1 > 0) {
+                        echo "<h5>Group 1 total rows: $rG1</h5>";
+                    } else {
+                        echo "<h5>Group 1 total rows: 0</h5>";
+                    }
+                    ?>
+                </div>
+
+                <!-- Group2 Row Count -->
+                <div class="col-md-9">
+                    <?php
+                    $sgroup = "2";
+                    $sql = "SELECT `sgroup` FROM `users` WHERE sgroup=:sgroup";
+                    $query = $dbh->prepare($sql);
+                    $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    global $rG2;
+                    $rG2 = $query->rowCount();
+                    if ($rG2 > 0) {
+                        echo "<h5>Group 2 total rows: $rG2</h5>";
+                    } else {
+                        echo "<h5>Group 2 total rows: 0</h5>";
+                    }
+                    ?>
+                </div>
+
+                <!-- Group3 Row Count -->
+                <div class="col-md-9">
+                    <?php
+                    $sgroup = "3";
+                    $sql = "SELECT `sgroup` FROM `users` WHERE sgroup=:sgroup";
+                    $query = $dbh->prepare($sql);
+                    $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    global $rG3;
+                    $rG3 = $query->rowCount();
+                    if ($rG3 > 0) {
+                        echo "<h5>Group 3 total rows: $rG3</h5>";
+                    } else {
+                        echo "<h5>Group 3 total rows: 0</h5>";
+                    }
+                    ?>
+                </div>
+
+                <!-- Group4 Row Count -->
+                <div class="col-md-9">
+                    <?php
+                    $sgroup = "4";
+                    $sql = "SELECT `sgroup` FROM `users` WHERE sgroup=:sgroup";
+                    $query = $dbh->prepare($sql);
+                    $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
+                    $query->execute();
+                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                    global $rG4;
+                    $rG4 = $query->rowCount();
+                    if ($rG4 > 0) {
+                        echo "<h5>Group 4 total rows: $rG4</h5>";
+                    } else {
+                        echo "<h5>Group 4 total rows: 0</h5>";
+                    }
+                    ?>
+                </div>
+
+
+
                 <div class="col-md-9">
                     <br>
                     <h3>Register for practical slot</h3>
