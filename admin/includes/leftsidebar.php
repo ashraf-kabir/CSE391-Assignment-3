@@ -13,7 +13,7 @@
 
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i>
-                        <span>Users</span> <span class="menu-arrow"></span></a>
+                        <span>Students</span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
                         <li><a href="add-user.php">Add User</a></li>
                         <li><a href="manage-users.php">Manage Users</a></li>
@@ -23,7 +23,7 @@
 
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i>
-                        <span>News</span> <span class="menu-arrow"></span></a>
+                        <span>Slots</span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
                         <li><a href="add-news.php">Add News</a></li>
                         <li><a href="manage-news.php">Manage News</a></li>

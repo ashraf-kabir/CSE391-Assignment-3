@@ -51,10 +51,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Read</a>
+                                            <a href="#">Students</a>
                                         </li>
                                         <li class="active">
-                                            Read from CSV
+                                            Users List
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -77,18 +77,16 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>IEEE ID</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
-                                                    <th>Department</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
+                                                    <th>Student ID</th>
+                                                    <th>Group</th>
                                                 </tr>
                                                 </thead>
 
                                                 <tbody>
 
-                                                <?php $sql = "SELECT * FROM `user`";
+                                                <?php $sql = "SELECT * FROM `users`";
                                                 $query = $dbh->prepare($sql);
                                                 $query->execute();
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -97,12 +95,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     foreach ($results as $result) { ?>
                                                         <tr>
                                                             <td><?php echo htmlentities($cnt); ?></td>
-                                                            <td><?php echo htmlentities($result->id); ?></td>
                                                             <td><?php echo htmlentities($result->name); ?></td>
                                                             <td><?php echo htmlentities($result->email); ?></td>
-                                                            <td><?php echo htmlentities($result->department); ?></td>
-                                                            <td><?php echo htmlentities($result->phone); ?></td>
-                                                            <td><?php echo htmlentities($result->address); ?></td>
+                                                            <td><?php echo htmlentities($result->sid); ?></td>
+                                                            <td><?php echo htmlentities($result->sgroup); ?></td>
                                                         </tr>
                                                         <?php $cnt = $cnt + 1;
                                                     }
