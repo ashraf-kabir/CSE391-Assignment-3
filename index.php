@@ -151,9 +151,7 @@ if (strlen($_SESSION['login']) == 0) {
                     }
                     ?>
                 </div>
-
-
-
+                
 
                 <!-- Group1 Row Count -->
                 <div class="col-md-9">
@@ -230,7 +228,6 @@ if (strlen($_SESSION['login']) == 0) {
                     }
                     ?>
                 </div>
-
 
 
                 <div class="col-md-9">
