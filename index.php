@@ -161,6 +161,7 @@ if (strlen($_SESSION['login']) == 0) {
                 </div>
 
                 <div class="col-md-9">
+                    <br>
                     <h3>Register for practical slot</h3>
                     <?php
                     $email = $_SESSION['login'];

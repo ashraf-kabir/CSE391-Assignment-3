@@ -9,8 +9,9 @@ if (isset($_POST['signup'])) {
     $password = md5($_POST['password']);
     $sid = $_POST['sid'];
     $sgroup = $_POST["sgroup"];
+    $is_active = "1";
 
-    $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`,`sid`,`sgroup`) VALUES(:fname,:lname,:email,:password,:sid,:sgroup)";
+    $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`,`sid`,`sgroup`,`is_active`) VALUES(:fname,:lname,:email,:password,:sid,:sgroup,:is_active)";
     $query = $dbh->prepare($sql);
 
     $query->bindParam(':fname', $fname, PDO::PARAM_STR);
@@ -19,6 +20,7 @@ if (isset($_POST['signup'])) {
     $query->bindParam(':password', $password, PDO::PARAM_STR);
     $query->bindParam(':sid', $sid, PDO::PARAM_STR);
     $query->bindParam(':sgroup', $sgroup, PDO::PARAM_STR);
+    $query->bindParam(':is_active', $is_active, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
