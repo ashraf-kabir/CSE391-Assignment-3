@@ -27,7 +27,6 @@ if (isset($_POST['signup'])) {
         echo "<script>alert('Something went wrong');</script>";
     }
 
-
 }
 ?>
 <!DOCTYPE html>
@@ -80,30 +79,30 @@ if (isset($_POST['signup'])) {
                     <form class="form-horizontal" method="post" name="signup">
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <label for="fname">First Name</label>
-                                <input id="fname" class="form-control" type="text" required="" name="fname"
+                                <label for="input1">First Name</label>
+                                <input id="input1" class="form-control" type="text" required="" name="fname"
                                        placeholder="First Name">
                             </div>
                         </div>
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <label for="lname">Last Name</label>
-                                <input id="lname" class="form-control" type="text" required="" name="lname"
+                                <label for="input2">Last Name</label>
+                                <input id="input2" class="form-control" type="text" required="" name="lname"
                                        placeholder="Last Name">
                             </div>
                         </div>
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <label for="sid">Student ID</label>
-                                <input id="sid" class="form-control" type="text" required="" name="sid"
+                                <label for="input3">Student ID</label>
+                                <input id="input3" class="form-control" type="text" required="" name="sid"
                                        placeholder="Student ID">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <label for="sgroup">Student Group</label>
-                                <select name="sgroup" id="sgroup">
+                                <label for="select1">Student Group</label>
+                                <select name="sgroup" id="select1">
                                     <option value="">-- Select --</option>
                                     <option value="1">Group 1</option>
                                     <option value="2">Group 2</option>
@@ -115,16 +114,16 @@ if (isset($_POST['signup'])) {
 
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <label for="email">Email</label>
-                                <input id="email" class="form-control" type="email" required="" name="email"
+                                <label for="input4">Email</label>
+                                <input id="input4" class="form-control" type="email" required="" name="email"
                                        placeholder="Email">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-7">
-                                <label for="password">Password</label>
-                                <input id="password" class="form-control" type="password" name="password" required=""
+                                <label for="input5">Password</label>
+                                <input id="input5" class="form-control" type="password" name="password" required=""
                                        placeholder="Password" autocomplete="off">
                             </div>
                         </div>
