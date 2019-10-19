@@ -69,7 +69,7 @@ if (strlen($_SESSION['login']) == 0) {
                                  as $result) {
                             $fname = $result->fname;
                             $lname = $result->lname;
-                            $name = $fname." ".$lname;
+                            $name = $fname . " " . $lname;
                             echo "<br><h1>Log in successful $name</h1>";
                         }
                     }
@@ -87,7 +87,9 @@ if (strlen($_SESSION['login']) == 0) {
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
                     global $rC1;
                     $rC1 = $query->rowCount();
+                    global $rem1;
                     if ($rC1 > 0) {
+                        $rem1 = 40 - $rC1;
                         echo "<h5>Slot 1 total rows: $rC1</h5>";
                     } else {
                         echo "<h5>Slot 1 total rows: 0</h5>";
@@ -106,7 +108,9 @@ if (strlen($_SESSION['login']) == 0) {
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
                     global $rC2;
                     $rC2 = $query->rowCount();
+                    global $rem2;
                     if ($rC2 > 0) {
+                        $rem2 = 40 - $rC2;
                         echo "<h5>Slot 2 total rows: $rC2</h5>";
                     } else {
                         echo "<h5>Slot 2 total rows: 0</h5>";
@@ -125,7 +129,9 @@ if (strlen($_SESSION['login']) == 0) {
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
                     global $rC3;
                     $rC3 = $query->rowCount();
+                    global $rem3;
                     if ($rC3 > 0) {
+                        $rem3 = 40 - $rC3;
                         echo "<h5>Slot 3 total rows: $rC3</h5>";
                     } else {
                         echo "<h5>Slot 3 total rows: 0</h5>";
@@ -144,7 +150,9 @@ if (strlen($_SESSION['login']) == 0) {
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
                     global $rC4;
                     $rC4 = $query->rowCount();
+                    global $rem4;
                     if ($rC4 > 0) {
+                        $rem4 = 40 - $rC4;
                         echo "<h5>Slot 4 total rows: $rC4</h5>";
                     } else {
                         echo "<h5>Slot 4 total rows: 0</h5>";
@@ -276,7 +284,8 @@ if (strlen($_SESSION['login']) == 0) {
                             <label class="col-md-2 control-label" for="input4">Email</label>
                             <div class="col-md-5">
                                 <input type="email" class="form-control" id="input4"
-                                       name="email" required value="<?php echo htmlentities($result->email); ?>" disabled>
+                                       name="email" required value="<?php echo htmlentities($result->email); ?>"
+                                       disabled>
                             </div>
                         </div>
 
@@ -299,7 +308,8 @@ if (strlen($_SESSION['login']) == 0) {
                                             ?>
 
                                             <option value="<?php echo htmlentities($result1->id); ?>">
-                                                <?php echo htmlentities($result1->name); ?>, <?php echo htmlentities($result1->description); ?>
+                                                <?php echo htmlentities($result1->name); ?>
+                                                , <?php echo htmlentities($result1->description); ?>
                                             </option>
                                         <?php }
                                     } ?>
@@ -333,7 +343,7 @@ if (strlen($_SESSION['login']) == 0) {
                             <input type="text" class="form-control" id="input5"
                                    name="" disabled value="<?php
                             if ($rC1 > 0) {
-                                echo $rem1 = 40 - $rC1;
+                                echo $rem1;
                             } else {
                                 echo $rem1 = 40;
                             } ?> seats remaining">
@@ -345,7 +355,7 @@ if (strlen($_SESSION['login']) == 0) {
                             <input type="text" class="form-control" id="input6"
                                    name="" disabled value="<?php
                             if ($rC2 > 0) {
-                                echo $rem2 = 40 - $rC2;
+                                echo $rem2;
                             } else {
                                 echo $rem2 = 40;
                             } ?> seats remaining">
@@ -355,8 +365,9 @@ if (strlen($_SESSION['login']) == 0) {
                         <label class="col-md-2 control-label" for="input7">Slot 3</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="input7"
-                                   name="" disabled value="<?php if ($rC2 > 0) {
-                                echo $rem3 = 40 - $rC3;
+                                   name="" disabled value="<?php
+                            if ($rC3 > 0) {
+                                echo $rem3;
                             } else {
                                 echo $rem3 = 40;
                             } ?> seats remaining">
@@ -366,8 +377,9 @@ if (strlen($_SESSION['login']) == 0) {
                         <label class="col-md-2 control-label" for="input8">Slot 4</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="input8"
-                                   name="" disabled value="<?php if ($rC2 > 0) {
-                                echo $rem4 = 40 - $rC4;
+                                   name="" disabled value="<?php
+                            if ($rC4 > 0) {
+                                echo $rem4;
                             } else {
                                 echo $rem4 = 40;
                             } ?> seats remaining">
