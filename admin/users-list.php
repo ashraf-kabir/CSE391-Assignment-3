@@ -81,24 +81,31 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <th>Email</th>
                                                     <th>Student ID</th>
                                                     <th>Group</th>
+                                                    <th>Slot Name</th>
+                                                    <th>Slot Desc</th>
                                                 </tr>
                                                 </thead>
 
                                                 <tbody>
 
-                                                <?php $sql = "SELECT * FROM `users`";
+                                                <?php
+                                                //$sql = "SELECT * FROM `users`";
+                                                $sql = "SELECT users.*, slots.* FROM users JOIN slots ON slots.id=users.slot";
                                                 $query = $dbh->prepare($sql);
                                                 $query->execute();
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
                                                 $cnt = 1;
                                                 if ($query->rowCount() > 0) {
-                                                    foreach ($results as $result) { ?>
+                                                    foreach ($results as $result) {
+                                                        $name = $result->fname." ".$result->lname; ?>
                                                         <tr>
                                                             <td><?php echo htmlentities($cnt); ?></td>
-                                                            <td><?php echo htmlentities($result->name); ?></td>
+                                                            <td><?php echo htmlentities($name); ?></td>
                                                             <td><?php echo htmlentities($result->email); ?></td>
                                                             <td><?php echo htmlentities($result->sid); ?></td>
                                                             <td><?php echo htmlentities($result->sgroup); ?></td>
+                                                            <td><?php echo htmlentities($result->name); ?></td>
+                                                            <td><?php echo htmlentities($result->description); ?></td>
                                                         </tr>
                                                         <?php $cnt = $cnt + 1;
                                                     }

@@ -95,7 +95,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <th>Email</th>
                                                     <th>Student ID</th>
                                                     <th>Group</th>
-                                                    <th>Edit</th>
+                                                    <th>Slot</th>
                                                     <th>Delete</th>
                                                 </tr>
                                                 </thead>
@@ -107,16 +107,15 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
                                                 $cnt = 1;
                                                 if ($query->rowCount() > 0) {
-                                                    foreach ($results as $result) { ?>
+                                                    foreach ($results as $result) {
+                                                        $name = $result->fname." ".$result->lname; ?>
                                                         <tr>
                                                             <th scope="row"><?php echo htmlentities($cnt); ?></th>
-                                                            <td><?php echo htmlentities($result->name); ?></td>
+                                                            <td><?php echo htmlentities($name); ?></td>
                                                             <td><?php echo htmlentities($result->email); ?></td>
                                                             <td><?php echo htmlentities($result->sid); ?></td>
                                                             <td><?php echo htmlentities($result->sgroup); ?></td>
-                                                            <td>
-                                                                <a href="edit-user.php?id=<?php echo $result->id; ?>">edit</a>
-                                                            </td>
+                                                            <td><?php echo htmlentities($result->slot); ?></td>
                                                             <td><a href="manage-users.php?del=<?php echo $result->id; ?>"
                                                                    onclick="return confirm('Do you want to delete?');">delete</a>
                                                             </td>
