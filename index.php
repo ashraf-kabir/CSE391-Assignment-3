@@ -18,7 +18,7 @@ if (strlen($_SESSION['login']) == 0) {
         $query->bindParam(':sid', $sid, PDO::PARAM_STR);
         $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->bindParam(':slot', $slot, PDO::PARAM_STR);
-        
+
         $query->execute();
         echo "<script>alert('Slot added successfully')</script>";
 
