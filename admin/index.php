@@ -99,7 +99,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <p class="m-0 text-uppercase font-600 font-secondary text-overflow"
                                                title="Statistics">Total Users</p>
                                             <?php
-                                            $sql = "SELECT id from `user` WHERE is_active=1";
+                                            $sql = "SELECT id from `users` WHERE is_active=1";
                                             $query = $dbh->prepare($sql);
                                             $query->execute();
                                             $results = $query->fetchAll(PDO::FETCH_OBJ);
