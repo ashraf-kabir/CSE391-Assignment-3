@@ -10,9 +10,7 @@ if (strlen($_SESSION['login']) == 0) {
         $sid = $_POST['sid'];
         $email = $_SESSION['login'];
         $slot = $_POST["select1"];
-        //$id = intval($_GET['id']);
 
-        //$sql = "UPDATE `posts` SET title=:title,category=:cat,grabber=:grabber,description=:description WHERE id=:id ";
         $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,sid=:sid,email=:email,slot=:slot WHERE `email`=:email";
         $query = $dbh->prepare($sql1);
         $query->bindParam(':fname', $fname, PDO::PARAM_STR);
@@ -20,8 +18,7 @@ if (strlen($_SESSION['login']) == 0) {
         $query->bindParam(':sid', $sid, PDO::PARAM_STR);
         $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->bindParam(':slot', $slot, PDO::PARAM_STR);
-        //$query->bindParam(':id', $id, PDO::PARAM_STR);
-
+        
         $query->execute();
         echo "<script>alert('Slot added successfully')</script>";
 
