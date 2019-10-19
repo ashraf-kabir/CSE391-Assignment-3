@@ -3,19 +3,18 @@ session_start();
 error_reporting(0);
 include('includes/config.php');
 if (isset($_POST['signup'])) {
-    $uname = $_POST['username'];
     $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);
     $sid = $_POST['sid'];
-
     $sgroup = $_POST["sgroup"];
 
-    $sql = "INSERT INTO users(`name`,`fname`,`email`,`password`,`sid`,`sgroup`) VALUES(:uname,:fname,:email,:password,:sid,:sgroup)";
+    $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`,`sid`,`sgroup`) VALUES(:fname,:lname,:email,:password,:sid,:sgroup)";
     $query = $dbh->prepare($sql);
 
-    $query->bindParam(':uname', $uname, PDO::PARAM_STR);
     $query->bindParam(':fname', $fname, PDO::PARAM_STR);
+    $query->bindParam(':lname', $lname, PDO::PARAM_STR);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
     $query->bindParam(':sid', $sid, PDO::PARAM_STR);
@@ -81,44 +80,51 @@ if (isset($_POST['signup'])) {
                     <form class="form-horizontal" method="post" name="signup">
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <input class="form-control" type="text" required="" name="username"
-                                       placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <div class="col-md-7">
-                                <input class="form-control" type="text" required="" name="fname"
+                                <label for="fname">First Name</label>
+                                <input id="fname" class="form-control" type="text" required="" name="fname"
                                        placeholder="First Name">
                             </div>
                         </div>
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <input class="form-control" type="text" required="" name="sid"
+                                <label for="lname">Last Name</label>
+                                <input id="lname" class="form-control" type="text" required="" name="lname"
+                                       placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-md-7">
+                                <label for="sid">Student ID</label>
+                                <input id="sid" class="form-control" type="text" required="" name="sid"
                                        placeholder="Student ID">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <div class="col-md-7">
+                                <label for="sgroup">Student Group</label>
                                 <select name="sgroup" id="sgroup">
-                                    <option value="g1">Group 1</option>
-                                    <option value="g2">Group 2</option>
-                                    <option value="g3">Group 3</option>
-                                    <option value="g4">Group 4</option>
+                                    <option value="">-- Select --</option>
+                                    <option value="1">Group 1</option>
+                                    <option value="2">Group 2</option>
+                                    <option value="3">Group 3</option>
+                                    <option value="4">Group 4</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <input class="form-control" type="email" required="" name="email"
+                                <label for="email">Email</label>
+                                <input id="email" class="form-control" type="email" required="" name="email"
                                        placeholder="Email">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-7">
-                                <input class="form-control" type="password" name="password" required=""
+                                <label for="password">Password</label>
+                                <input id="password" class="form-control" type="password" name="password" required=""
                                        placeholder="Password" autocomplete="off">
                             </div>
                         </div>
@@ -126,8 +132,7 @@ if (isset($_POST['signup'])) {
                         <div class="form-group account-btn text-center m-t-10">
                             <div class="col-md-7">
                                 <button class="btn w-md btn-bordered btn-primary waves-effect waves-light"
-                                        type="submit" name="signup"
-                                ">Register
+                                        type="submit" name="signup">Register
                                 </button>
                             </div>
                         </div>
