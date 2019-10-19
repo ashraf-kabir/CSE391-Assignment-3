@@ -8,7 +8,7 @@ if (isset($_POST['signup'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
     $sid = $_POST['sid'];
-    $sgroup = $_POST["sgroup"];
+    $sgroup = $_POST["select1"];
     $is_active = "1";
 
     $sql = "INSERT INTO users(`fname`,`lname`,`email`,`password`,`sid`,`sgroup`,`is_active`) VALUES(:fname,:lname,:email,:password,:sid,:sgroup,:is_active)";
@@ -101,15 +101,28 @@ if (isset($_POST['signup'])) {
                             </div>
                         </div>
 
-                        <div class="form-group ">
-                            <div class="col-md-7">
-                                <label for="select1">Student Group</label>
-                                <select name="sgroup" id="select1">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="select1">Group</label>
+                            <div class="col-md-6">
+                                <select name="select1" id="select1" required>
                                     <option value="">-- Select --</option>
-                                    <option value="1">Group 1</option>
-                                    <option value="2">Group 2</option>
-                                    <option value="3">Group 3</option>
-                                    <option value="4">Group 4</option>
+                                    <?php
+                                    $sql = "SELECT * FROM groups";
+                                    $query = $dbh->prepare($sql);
+                                    //$query->bindParam(':id', $id, PDO::PARAM_STR);
+                                    $query->execute();
+                                    $results1 = $query->fetchAll(PDO::FETCH_OBJ);
+                                    if ($query->rowCount() > 0) {
+                                        foreach ($results1
+
+                                                 as $result1) {
+                                            ?>
+
+                                            <option value="<?php echo htmlentities($result1->id); ?>">
+                                                <?php echo htmlentities($result1->name); ?>, <?php echo htmlentities($result1->description); ?>
+                                            </option>
+                                        <?php }
+                                    } ?>
                                 </select>
                             </div>
                         </div>

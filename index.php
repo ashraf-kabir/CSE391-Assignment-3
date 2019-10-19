@@ -79,11 +79,9 @@ if (strlen($_SESSION['login']) == 0) {
                 <!-- Slot1 Row Count -->
                 <div class="col-md-9">
                     <?php
-                    $email = $_SESSION['login'];
                     $slot = "1";
-                    $sql = "SELECT `slot` FROM `users` WHERE email=:email AND slot=:slot";
+                    $sql = "SELECT `slot` FROM `users` WHERE slot=:slot";
                     $query = $dbh->prepare($sql);
-                    $query->bindParam(':email', $email, PDO::PARAM_STR);
                     $query->bindParam(':slot', $slot, PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -100,11 +98,9 @@ if (strlen($_SESSION['login']) == 0) {
                 <!-- Slot2 Row Count -->
                 <div class="col-md-9">
                     <?php
-                    $email = $_SESSION['login'];
                     $slot = "2";
-                    $sql = "SELECT `slot` FROM `users` WHERE email=:email AND slot=:slot";
+                    $sql = "SELECT `slot` FROM `users` WHERE slot=:slot";
                     $query = $dbh->prepare($sql);
-                    $query->bindParam(':email', $email, PDO::PARAM_STR);
                     $query->bindParam(':slot', $slot, PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -121,11 +117,9 @@ if (strlen($_SESSION['login']) == 0) {
                 <!-- Slot3 Row Count -->
                 <div class="col-md-9">
                     <?php
-                    $email = $_SESSION['login'];
                     $slot = "3";
-                    $sql = "SELECT `slot` FROM `users` WHERE email=:email AND slot=:slot";
+                    $sql = "SELECT `slot` FROM `users` WHERE slot=:slot";
                     $query = $dbh->prepare($sql);
-                    $query->bindParam(':email', $email, PDO::PARAM_STR);
                     $query->bindParam(':slot', $slot, PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -142,11 +136,9 @@ if (strlen($_SESSION['login']) == 0) {
                 <!-- Slot4 Row Count -->
                 <div class="col-md-9">
                     <?php
-                    $email = $_SESSION['login'];
                     $slot = "4";
-                    $sql = "SELECT `slot` FROM `users` WHERE email=:email AND slot=:slot";
+                    $sql = "SELECT `slot` FROM `users` WHERE slot=:slot";
                     $query = $dbh->prepare($sql);
-                    $query->bindParam(':email', $email, PDO::PARAM_STR);
                     $query->bindParam(':slot', $slot, PDO::PARAM_STR);
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -217,7 +209,7 @@ if (strlen($_SESSION['login']) == 0) {
                                 <select name="select1" id="select1" required>
                                     <option value="">-- Select --</option>
                                     <?php
-                                    $sql = "SELECT `id`, `name`, `description` FROM slots";
+                                    $sql = "SELECT * FROM slots";
                                     $query = $dbh->prepare($sql);
                                     //$query->bindParam(':id', $id, PDO::PARAM_STR);
                                     $query->execute();
@@ -229,7 +221,7 @@ if (strlen($_SESSION['login']) == 0) {
                                             ?>
 
                                             <option value="<?php echo htmlentities($result1->id); ?>">
-                                                <?php echo htmlentities($result1->description); ?>
+                                                <?php echo htmlentities($result1->name); ?>, <?php echo htmlentities($result1->description); ?>
                                             </option>
                                         <?php }
                                     } ?>
@@ -297,7 +289,6 @@ if (strlen($_SESSION['login']) == 0) {
                     </div>
                 </div>
                 <br><br><br><br>
-
 
 
             </div>
