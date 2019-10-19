@@ -151,7 +151,7 @@ if (strlen($_SESSION['login']) == 0) {
                     }
                     ?>
                 </div>
-                
+
 
                 <!-- Group1 Row Count -->
                 <div class="col-md-9">
@@ -355,14 +355,22 @@ if (strlen($_SESSION['login']) == 0) {
                         <label class="col-md-2 control-label" for="input7">Slot 3</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="input7"
-                                   name="" disabled value="<?php echo $rem3 = 40 - $rC3; ?> seats remaining">
+                                   name="" disabled value="<?php if ($rC2 > 0) {
+                                echo $rem3 = 40 - $rC3;
+                            } else {
+                                echo $rem3 = 40;
+                            } ?> seats remaining">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="input8">Slot 4</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="input8"
-                                   name="" disabled value="<?php echo $rem4 = 40 - $rC4; ?> seats remaining">
+                                   name="" disabled value="<?php if ($rC2 > 0) {
+                                echo $rem4 = 40 - $rC4;
+                            } else {
+                                echo $rem4 = 40;
+                            } ?> seats remaining">
                         </div>
                     </div>
                 </div>
