@@ -69,7 +69,7 @@ if (isset($_POST['login'])) {
                         <div class="form-group ">
                             <div class="col-md-7">
                                 <input class="form-control" type="email" required="" name="email"
-                                       placeholder="Email" autocomplete="off">
+                                       placeholder="Email" autocomplete="on">
                             </div>
                         </div>
 
