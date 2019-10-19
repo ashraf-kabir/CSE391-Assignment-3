@@ -94,14 +94,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Student ID</th>
-                                                    <th>Group</th>
-                                                    <th>Slot</th>
+                                                    <th>Groups</th>
                                                     <th>Delete</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                $sql = "SELECT * FROM `users` WHERE `is_active`=1";
+                                                $sql = "SELECT users.*, groups.* FROM users JOIN groups ON groups.id=users.sgroup WHERE users.is_active=1";
                                                 $query = $dbh->prepare($sql);
                                                 $query->execute();
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -114,8 +113,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <td><?php echo htmlentities($name); ?></td>
                                                             <td><?php echo htmlentities($result->email); ?></td>
                                                             <td><?php echo htmlentities($result->sid); ?></td>
-                                                            <td><?php echo htmlentities($result->sgroup); ?></td>
-                                                            <td><?php echo htmlentities($result->slot); ?></td>
+                                                            <td><?php echo htmlentities($result->name); ?></td>
                                                             <td><a href="manage-users.php?del=<?php echo $result->id; ?>"
                                                                    onclick="return confirm('Do you want to delete?');">delete</a>
                                                             </td>

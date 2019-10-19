@@ -16,7 +16,7 @@
                         <span>Students</span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
                         <li><a href="manage-users.php">Manage Users</a></li>
-                        <li><a href="users-list.php">Users List</a></li>
+                        <li><a href="users-list.php">Users List of Slots</a></li>
                     </ul>
                 </li>
 
