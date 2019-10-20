@@ -268,7 +268,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                     as $result) {
                     ?>
-                    
+
                     <form class="form-horizontal" method="post" style="border-style: dashed;">
 
                         <div class="form-group">
@@ -345,12 +345,11 @@ if (strlen($_SESSION['login']) == 0) {
                                     $query->bindParam(':email', $email, PDO::PARAM_STR);
                                     $query->execute();
                                     $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                    $cnt = 1;
                                     if ($query->rowCount() > 0) {
-                                        foreach ($results as $result) {
+                                        foreach ($results as $result3) {
                                             ?>
-                                            <?php echo htmlentities($result->name); ?> at
-                                            <?php echo htmlentities($result->description); ?>
+                                            <?php echo htmlentities($result3->name); ?> at
+                                            <?php echo htmlentities($result3->description); ?>
                                         <?php }
                                     } ?>
                                 </div>
