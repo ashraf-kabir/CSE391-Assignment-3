@@ -21,7 +21,6 @@ if (strlen($_SESSION['login']) == 0) {
 
         $query->execute();
         echo "<script>alert('Slot added successfully')</script>";
-
     }
     ?>
     <!DOCTYPE html>
