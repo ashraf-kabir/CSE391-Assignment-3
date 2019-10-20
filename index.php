@@ -254,7 +254,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                 <div class="col-md-9">
                     <br>
-                    <h3>Register for practical slot</h3>
+                    <h3 style="text-align: center; font-weight: bold">Register for practical slot</h3>
                     <?php
                     $email = $_SESSION['login'];
                     $sql2 = "SELECT * FROM `users` WHERE `email`=:email";
@@ -269,7 +269,7 @@ if (strlen($_SESSION['login']) == 0) {
                     as $result) {
                     ?>
 
-                    <form class="form-horizontal" method="post" style="border-style: dashed;">
+                    <form class="form-horizontal" method="post" style="border-style: solid; padding-top: 20px;">
 
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="input1">First Name</label>
@@ -295,10 +295,35 @@ if (strlen($_SESSION['login']) == 0) {
                             </div>
                         </div>
 
+                        <?php
+                        $email = $_SESSION['login'];
+                        $sql4 = "SELECT users.*, groups.* FROM users JOIN groups ON groups.id=users.sgroup WHERE email=:email";
+                        $query = $dbh->prepare($sql4);
+                        $query->bindParam(':email', $email, PDO::PARAM_STR);
+                        $query->execute();
+                        $results4 = $query->fetchAll(PDO::FETCH_OBJ);
+                        if ($query->rowCount() > 0) {
+                            foreach ($results4 as $result4) {
+                                $gname = htmlentities($result4->name);
+                                $gdesc = htmlentities($result4->description);
+                                $gnamedesc = $gname.", ".$gdesc;
+                                ?>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="input4">Group</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="input4"
+                                               name="group" required
+                                               value="<?php echo $gnamedesc; ?>"
+                                               disabled>
+                                    </div>
+                                </div>
+                            <?php }
+                        } ?>
+
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="input4">Email</label>
+                            <label class="col-md-2 control-label" for="input5">Email</label>
                             <div class="col-md-5">
-                                <input type="email" class="form-control" id="input4"
+                                <input type="email" class="form-control" id="input5"
                                        name="email" required value="<?php echo htmlentities($result->email); ?>"
                                        disabled>
                             </div>
