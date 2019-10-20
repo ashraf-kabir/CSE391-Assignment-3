@@ -20,7 +20,13 @@ if (strlen($_SESSION['login']) == 0) {
         $query->bindParam(':slot', $slot, PDO::PARAM_STR);
 
         $query->execute();
-        echo "<script>alert('Slot added successfully')</script>";
+        $lastInsertId = $dbh->lastInsertId();
+        if ($lastInsertId) {
+            echo "<script>alert('Slot added successfully')</script>";
+        } else {
+            echo "<script>alert('Something went wrong')</script>";
+        }
+
     }
     ?>
     <!DOCTYPE html>

@@ -49,6 +49,24 @@ if (isset($_POST['signup'])) {
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
+
+    <script>
+        function checkAvailability() {
+            $("#loaderIcon").show();
+            jQuery.ajax({
+                url: "check-availability.php",
+                data: 'email=' + $("#email").val(),
+                type: "POST",
+                success: function (data) {
+                    $("#user-availability-status").html(data);
+                    $("#loaderIcon").hide();
+                },
+                error: function () {
+                }
+            });
+        }
+    </script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             function disablePrev() {
@@ -129,9 +147,10 @@ if (isset($_POST['signup'])) {
 
                         <div class="form-group ">
                             <div class="col-md-7">
-                                <label for="input4">Email</label>
-                                <input id="input4" class="form-control" type="email" required="" name="email"
-                                       placeholder="Email">
+                                <label for="email">Email</label>
+                                <input id="email" class="form-control" type="email" required="" name="email"
+                                       placeholder="Email" onBlur="checkAvailability()">
+                                <span id="user-availability-status" style="font-size:12px;"></span>
                             </div>
                         </div>
 
@@ -151,6 +170,12 @@ if (isset($_POST['signup'])) {
                             </div>
                         </div>
                     </form>
+
+                    <div class="form-group account-btn text-center m-t-10">
+                        <div class="col-md-7">
+                            Already have an account? <a href="login.php">Log in</a>
+                        </div>
+                    </div>
 
                     <div class="clearfix"></div>
 
