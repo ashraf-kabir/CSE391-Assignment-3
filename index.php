@@ -269,7 +269,7 @@ if (strlen($_SESSION['login']) == 0) {
                     as $result) {
                     ?>
 
-                    <form class="form-horizontal" method="post" style="border-style: solid; padding-top: 20px;">
+                    <form class="form-horizontal" method="post" style="border-style: solid; padding-top: 20px; background-color: #C8D3D5;">
 
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="input1">First Name</label>
@@ -402,7 +402,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                 </div>
 
-                <div class="col-md-9" style="padding-bottom: 150px; padding-top: 30px;">
+                <div class="col-md-9" style="padding-bottom: 150px; padding-top: 30px; background-color: #1c94c4">
                     <h4>Seat status</h4>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="input5">Slot 1</label>
