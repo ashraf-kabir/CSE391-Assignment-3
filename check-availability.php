@@ -20,5 +20,4 @@ if (!empty($_POST["email"])) {
         }
     }
 }
-
 ?>
