@@ -112,10 +112,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     </div>
                                 </div>
                             </a><!-- end col -->
-                        </div>
-                        <!-- end row -->
 
-                        <div class="row">
                             <a href="manage-users.php">
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="card-box widget-box-one">
@@ -131,21 +128,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             $results = $query->fetchAll(PDO::FETCH_OBJ);
                                             $regusers = $query->rowCount();
                                             ?>
-                                            <h2><?php echo htmlentities($regusers); ?>
-                                                <small></small>
-                                            </h2>
+                                            <h2><?php echo htmlentities($regusers); ?></h2>
                                         </div>
-                                    </div>
-                                </div>
-                            </a><!-- end col -->
-                        </div>
-                        <!-- end row -->
 
-                        <div class="row">
-                            <a href="manage-users.php">
-                                <div class="col-lg-4 col-md-4 col-sm-6">
-                                    <div class="card-box widget-box-one">
-                                        <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
                                         <div class="wigdet-one-content">
                                             <p class="m-0 text-uppercase font-600 font-secondary text-overflow"
                                                title="Statistics">Total Users in Slot 2</p>
@@ -157,21 +142,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             $results = $query->fetchAll(PDO::FETCH_OBJ);
                                             $regusers = $query->rowCount();
                                             ?>
-                                            <h2><?php echo htmlentities($regusers); ?>
-                                                <small></small>
-                                            </h2>
+                                            <h2><?php echo htmlentities($regusers); ?></h2>
                                         </div>
-                                    </div>
-                                </div>
-                            </a><!-- end col -->
-                        </div>
-                        <!-- end row -->
 
-                        <div class="row">
-                            <a href="manage-users.php">
-                                <div class="col-lg-4 col-md-4 col-sm-6">
-                                    <div class="card-box widget-box-one">
-                                        <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
                                         <div class="wigdet-one-content">
                                             <p class="m-0 text-uppercase font-600 font-secondary text-overflow"
                                                title="Statistics">Total Users in Slot 3</p>
@@ -183,21 +156,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             $results = $query->fetchAll(PDO::FETCH_OBJ);
                                             $regusers = $query->rowCount();
                                             ?>
-                                            <h2><?php echo htmlentities($regusers); ?>
-                                                <small></small>
-                                            </h2>
+                                            <h2><?php echo htmlentities($regusers); ?></h2>
                                         </div>
-                                    </div>
-                                </div>
-                            </a><!-- end col -->
-                        </div>
-                        <!-- end row -->
 
-                        <div class="row">
-                            <a href="manage-users.php">
-                                <div class="col-lg-4 col-md-4 col-sm-6">
-                                    <div class="card-box widget-box-one">
-                                        <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
                                         <div class="wigdet-one-content">
                                             <p class="m-0 text-uppercase font-600 font-secondary text-overflow"
                                                title="Statistics">Total Users in Slot 4</p>
@@ -209,13 +170,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             $results = $query->fetchAll(PDO::FETCH_OBJ);
                                             $regusers = $query->rowCount();
                                             ?>
-                                            <h2><?php echo htmlentities($regusers); ?>
-                                                <small></small>
-                                            </h2>
+                                            <h2><?php echo htmlentities($regusers); ?></h2>
                                         </div>
+
                                     </div>
                                 </div>
                             </a><!-- end col -->
+
                         </div>
                         <!-- end row -->
 
