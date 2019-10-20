@@ -254,7 +254,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                 <div class="col-md-9">
                     <br>
-                    <h3 style="text-align: center; font-weight: bold">Register for practical slot</h3>
+                    <h2 style="text-align: center; font-weight: bold">Register for practical slot</h2>
                     <?php
                     $email = $_SESSION['login'];
                     $sql2 = "SELECT * FROM `users` WHERE `email`=:email";
@@ -402,7 +402,8 @@ if (strlen($_SESSION['login']) == 0) {
 
                 </div>
 
-                <div class="col-md-9" style="padding-bottom: 150px; padding-top: 30px; background-color: #1c94c4">
+                <br>
+                <div class="col-md-9" style="padding-bottom: 150px; padding-top: 30px; background-color: #EDF060; border-style: solid;">
                     <h4>Seat status</h4>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="input5">Slot 1</label>
