@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include('includes/config.php');
 if (strlen($_SESSION['login']) == 0) {
     header("location: login.php");
@@ -11,20 +12,31 @@ if (strlen($_SESSION['login']) == 0) {
         $email = $_SESSION['login'];
         $slot = $_POST["select1"];
 
-        $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,sid=:sid,email=:email,slot=:slot WHERE `email`=:email";
-        $query = $dbh->prepare($sql1);
-        $query->bindParam(':fname', $fname, PDO::PARAM_STR);
-        $query->bindParam(':lname', $lname, PDO::PARAM_STR);
-        $query->bindParam(':sid', $sid, PDO::PARAM_STR);
-        $query->bindParam(':email', $email, PDO::PARAM_STR);
-        $query->bindParam(':slot', $slot, PDO::PARAM_STR);
+        if ($slot == null) {
+            $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,sid=:sid,email=:email WHERE `email`=:email";
 
-        $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            echo "<script>alert('Slot added successfully')</script>";
+            $query = $dbh->prepare($sql1);
+            $query->bindParam(':fname', $fname, PDO::PARAM_STR);
+            $query->bindParam(':lname', $lname, PDO::PARAM_STR);
+            $query->bindParam(':sid', $sid, PDO::PARAM_STR);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+
+            $query->execute();
+
+            echo "<script>alert('User updated successfully')</script>";
         } else {
-            echo "<script>alert('Something went wrong')</script>";
+            $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,sid=:sid,email=:email,slot=:slot WHERE `email`=:email";
+
+            $query = $dbh->prepare($sql1);
+            $query->bindParam(':fname', $fname, PDO::PARAM_STR);
+            $query->bindParam(':lname', $lname, PDO::PARAM_STR);
+            $query->bindParam(':sid', $sid, PDO::PARAM_STR);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->bindParam(':slot', $slot, PDO::PARAM_STR);
+
+            $query->execute();
+
+            echo "<script>alert('Slot added successfully')</script>";
         }
 
     }
@@ -256,7 +268,8 @@ if (strlen($_SESSION['login']) == 0) {
 
                     as $result) {
                     ?>
-                    <form class="form-horizontal" method="post" style="padding-bottom: 100px;">
+                    
+                    <form class="form-horizontal" method="post" style="border-style: dashed;">
 
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="input1">First Name</label>
@@ -291,33 +304,60 @@ if (strlen($_SESSION['login']) == 0) {
                             </div>
                         </div>
 
+                        <?php
+                        if ($result->slot == null) {
+                            ?>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="select1">Select a practical slot</label>
+                                <div class="col-md-6">
+                                    <select name="select1" id="select1" required>
+                                        <option value="">-- Select --</option>
+                                        <?php
+                                        $sql = "SELECT * FROM slots";
+                                        $query = $dbh->prepare($sql);
+                                        //$query->bindParam(':id', $id, PDO::PARAM_STR);
+                                        $query->execute();
+                                        $results1 = $query->fetchAll(PDO::FETCH_OBJ);
+                                        if ($query->rowCount() > 0) {
+                                            foreach ($results1
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="select1">Select a practical slot</label>
-                            <div class="col-md-6">
-                                <select name="select1" id="select1" required>
-                                    <option value="">-- Select --</option>
+                                                     as $result1) {
+                                                ?>
+
+                                                <option value="<?php echo htmlentities($result1->id); ?>">
+                                                    <?php echo htmlentities($result1->name); ?>
+                                                    , <?php echo htmlentities($result1->description); ?>
+                                                </option>
+                                            <?php }
+                                        } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        <?php } else { ?>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="input4">Slot</label>
+                                <div class="col-md-7">
+                                    <span>You are already assigned to </span>
                                     <?php
-                                    $sql = "SELECT * FROM slots";
-                                    $query = $dbh->prepare($sql);
-                                    //$query->bindParam(':id', $id, PDO::PARAM_STR);
+                                    $email = $_SESSION['login'];
+                                    $sql3 = "SELECT users.*, slots.* FROM users JOIN slots ON slots.id=users.slot WHERE email=:email";
+                                    $query = $dbh->prepare($sql3);
+                                    $query->bindParam(':email', $email, PDO::PARAM_STR);
                                     $query->execute();
-                                    $results1 = $query->fetchAll(PDO::FETCH_OBJ);
+                                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                    $cnt = 1;
                                     if ($query->rowCount() > 0) {
-                                        foreach ($results1
-
-                                                 as $result1) {
+                                        foreach ($results as $result) {
                                             ?>
-
-                                            <option value="<?php echo htmlentities($result1->id); ?>">
-                                                <?php echo htmlentities($result1->name); ?>
-                                                , <?php echo htmlentities($result1->description); ?>
-                                            </option>
+                                            <?php echo htmlentities($result->name); ?> at
+                                            <?php echo htmlentities($result->description); ?>
                                         <?php }
                                     } ?>
-                                </select>
+                                </div>
                             </div>
-                        </div>
+                        <?php }
+                        ?>
+
                         <?php }
                         } ?>
 
@@ -333,11 +373,12 @@ if (strlen($_SESSION['login']) == 0) {
                             </div>
                         </div>
                         <br>
+
                     </form>
 
                 </div>
 
-                <div class="col-md-9" style="padding-bottom: 150px;">
+                <div class="col-md-9" style="padding-bottom: 150px; padding-top: 30px;">
                     <h4>Seat status</h4>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="input5">Slot 1</label>
