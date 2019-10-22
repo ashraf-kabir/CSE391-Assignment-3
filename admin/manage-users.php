@@ -78,13 +78,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="demo-box m-t-20">
-                                        <div class="m-b-30">
-                                            <a href="add-user.php">
-                                                <button id="addToTable"
-                                                        class="btn btn-success waves-effect waves-light">Add User<i
-                                                            class="mdi mdi-plus-circle-outline"></i></button>
-                                            </a>
-                                        </div>
 
                                         <div class="table-responsive">
                                             <table class="table m-0 table-colored-bordered table-bordered-primary">
@@ -95,7 +88,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <th>Email</th>
                                                     <th>Student ID</th>
                                                     <th>Groups</th>
-                                                    <th>Delete</th>
+                                                    <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
