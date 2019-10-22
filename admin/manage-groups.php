@@ -7,7 +7,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 } else {
     if (isset($_REQUEST['del'])) {
         $delid = intval($_GET['del']);
-        $sql = "DELETE FROM `groups` WHERE id=:delid";
+        $sql = "DELETE FROM `groups` WHERE gid=:delid";
         $query = $dbh->prepare($sql);
         $query->bindParam(':delid', $delid, PDO::PARAM_STR);
         $query->execute();
@@ -105,8 +105,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <td><?php echo htmlentities($cnt); ?></td>
                                                             <td><?php echo htmlentities($result->name); ?></td>
                                                             <td><?php echo htmlentities($result->description); ?></td>
-                                                            <td><a href="edit-groups.php?id=<?php echo $result->id; ?>">edit</a>
-                                                            <td><a href="manage-groups.php?del=<?php echo $result->id; ?>"
+                                                            <td><a href="edit-groups.php?id=<?php echo $result->gid; ?>">edit</a>
+                                                            <td><a href="manage-groups.php?del=<?php echo $result->gid; ?>"
                                                                    onclick="return confirm('Do you want to delete?');">delete</a>
                                                             </td>
                                                         </tr>

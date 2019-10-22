@@ -10,7 +10,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $description = $_POST['desc'];
         $id = intval($_GET['id']);
 
-        $sql = "UPDATE `groups` SET name=:name,description=:description WHERE id=:id ";
+        $sql = "UPDATE `groups` SET name=:name,description=:description WHERE gid=:id ";
         $query = $dbh->prepare($sql);
         $query->bindParam(':name', $name, PDO::PARAM_STR);
         $query->bindParam(':description', $description, PDO::PARAM_STR);
@@ -114,7 +114,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                             <?php
                                             $id = intval($_GET['id']);
-                                            $sql = "SELECT groups.* FROM groups WHERE groups.id=:id";
+                                            $sql = "SELECT groups.* FROM groups WHERE groups.gid=:id";
                                             $query = $dbh->prepare($sql);
                                             $query->bindParam(':id', $id, PDO::PARAM_STR);
                                             $query->execute();

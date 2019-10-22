@@ -24,7 +24,8 @@ if (isset($_POST['signup'])) {
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
-        echo "<script>alert('Registration successful');</script>";
+        echo "<script>alert('Registration successful');document.location = 'login.php';</script>";
+        //header("location: login.php");
     } else {
         echo "<script>alert('Something went wrong');</script>";
     }
@@ -136,8 +137,9 @@ if (isset($_POST['signup'])) {
                                                  as $result1) {
                                             ?>
 
-                                            <option value="<?php echo htmlentities($result1->id); ?>">
-                                                <?php echo htmlentities($result1->name); ?>, <?php echo htmlentities($result1->description); ?>
+                                            <option value="<?php echo htmlentities($result1->gid); ?>">
+                                                <?php echo htmlentities($result1->name); ?>,
+                                                <?php echo htmlentities($result1->description); ?>
                                             </option>
                                         <?php }
                                     } ?>

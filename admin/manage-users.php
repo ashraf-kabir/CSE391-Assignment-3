@@ -100,8 +100,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                $sql = "SELECT users.*, groups.* FROM users JOIN groups ON groups.id=users.sgroup WHERE users.is_active=1";
+                                                $is_active = "1";
+                                                $sql = "SELECT users.*, groups.* FROM users JOIN groups ON groups.gid=users.sgroup WHERE users.is_active=:is_active";
                                                 $query = $dbh->prepare($sql);
+                                                $query->bindParam(':is_active', $is_active, PDO::PARAM_STR);
                                                 $query->execute();
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
                                                 $cnt = 1;

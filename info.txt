@@ -1,5 +1,5 @@
 Database name:
-alumni
+cse390a3
 
 user panel:
 email: user@gmail.com
