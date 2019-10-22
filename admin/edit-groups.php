@@ -17,7 +17,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
 
-        echo "<script>alert('Group updated successfully');</script>";
+        echo "<script>alert('Group updated successfully');document.location = 'manage-groups.php';</script>";
     }
     ?>
     <!DOCTYPE html>

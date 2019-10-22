@@ -18,9 +18,9 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
         if ($lastInsertId) {
-            echo "<script>alert('Slot added successfully')</script>";
+            echo "<script>alert('Slot added successfully');document.location = 'manage-slots.php';</script>";
         } else {
-            echo "<script>alert('Something went wrong')</script>";
+            echo "<script>alert('Something went wrong');</script>";
         }
 
     }

@@ -18,9 +18,9 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
         if ($lastInsertId) {
-            echo "<script>alert('Group added successfully')</script>";
+            echo "<script>alert('Group added successfully');document.location = 'manage-groups.php';</script>";
         } else {
-            echo "<script>alert('Something went wrong')</script>";
+            echo "<script>alert('Something went wrong');</script>";
         }
 
     }

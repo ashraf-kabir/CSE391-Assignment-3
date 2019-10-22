@@ -17,7 +17,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $query->bindParam(':id', $id, PDO::PARAM_STR);
         $query->execute();
 
-        echo "<script>alert('Slot updated successfully');</script>";
+        echo "<script>alert('Slot updated successfully');document.location = 'manage-slots.php';</script>";
     }
     ?>
     <!DOCTYPE html>
