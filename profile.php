@@ -42,7 +42,7 @@ if (strlen($_SESSION['login']) == 0) {
                     if (isset($_GET['id'])) {
                         $id = $_GET['id'];
                         $email = $_SESSION['login'];
-                        $sql = "SELECT `id`,`name`,`department`,`phone`,`address` FROM `user` WHERE `id`=:id AND `email`=:email AND `is_active`=1";
+                        $sql = "SELECT * FROM `users` WHERE `id`=:id AND `email`=:email AND `is_active`=1";
                         $query = $dbh->prepare($sql);
                         $query->bindParam(':id', $id, PDO::PARAM_STR);
                         $query->bindParam(':email', $email, PDO::PARAM_STR);
@@ -54,29 +54,31 @@ if (strlen($_SESSION['login']) == 0) {
                                 echo "
                             <div class='col-md-12'>
                                 <br>
-                                <h4>Hello $result->name, your information is given below:</h4>
+                                <h4>Hello $result->fname, your information is given below:</h4>
                                 <br>
                                 <table class='table table-bordered'>
                                             
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
+                                            <th>User ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
                                             <th>Email</th>
-                                            <th>Department</th>
-                                            <th>Phone</th>
-                                            <th>Address</th>
+                                            <th>Student ID</th>
+                                            <th>Group</th>
+                                            <th>Slot</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <tr>
                                             <td>$result->id</td>
-                                            <td>$result->name</td>
+                                            <td>$result->fname</td>
+                                            <td>$result->lname</td>
                                             <td>$email</td>
-                                            <td>$result->department</td>
-                                            <td>$result->phone</td>
-                                            <td>$result->address</td>
+                                            <td>$result->sid</td>
+                                            <td>$result->sgroup</td>
+                                            <td>$result->slot</td>
                                         </tr>
                                     </tbody>
                                                 
