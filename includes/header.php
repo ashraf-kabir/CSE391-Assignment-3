@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <?php
                         $email = $_SESSION['login'];
-                        $sql1 = "SELECT `id` FROM `user` WHERE `email`=:email AND `is_active`=1";
+                        $sql1 = "SELECT `id` FROM `users` WHERE `email`=:email AND `is_active`=1";
                         $query = $dbh->prepare($sql1);
                         $query->bindParam(':email', $email, PDO::PARAM_STR);
                         $query->execute();
@@ -46,7 +46,7 @@
 
                             <!-- showing username at header -->
                             <?php
-                            $sql2 = "SELECT `name` FROM `user` WHERE `email`=:email AND `is_active`=1;";
+                            $sql2 = "SELECT `fname` FROM `users` WHERE `email`=:email AND `is_active`=1;";
                             $query = $dbh->prepare($sql2);
                             $query->bindParam(':email', $email, PDO::PARAM_STR);
                             $query->execute();
@@ -54,7 +54,7 @@
 
                             if ($query->rowCount() > 0) {
                                 foreach ($results as $result) {
-                                    echo $result->name;
+                                    echo $result->fname;
                                 }
                             }
                             //echo $_SESSION['userlogin']['email'];?>
