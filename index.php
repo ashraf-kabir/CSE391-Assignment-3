@@ -219,7 +219,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <?php } else { ?>
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="input4">Slot</label>
-                                <div class="col-md-7">
+                                <div class="col-md-8">
                                     <span>You are already assigned to </span>
                                     <?php
                                     $email = $_SESSION['login'];
