@@ -24,7 +24,7 @@ if (strlen($_SESSION['login']) == 0) {
 
             $query->execute();
 
-            echo "<script>alert('User updated successfully')</script>";
+            echo "<script>alert('User updated successfully');</script>";
         } else {
             $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,sid=:sid,email=:email,slot=:slot WHERE `email`=:email";
 
@@ -37,7 +37,7 @@ if (strlen($_SESSION['login']) == 0) {
 
             $query->execute();
 
-            echo "<script>alert('Slot added successfully')</script>";
+            echo "<script>alert('Slot added successfully');</script>";
         }
 
     }
@@ -78,17 +78,14 @@ if (strlen($_SESSION['login']) == 0) {
                 <div class="col-md-9">
                     <?php slot1($dbh); ?>
                 </div>
-
                 <!-- Slot2 Row Count -->
                 <div class="col-md-9">
                     <?php slot2($dbh); ?>
                 </div>
-
                 <!-- Slot3 Row Count -->
                 <div class="col-md-9">
                     <?php slot3($dbh); ?>
                 </div>
-
                 <!-- Slot4 Row Count -->
                 <div class="col-md-9">
                     <?php slot4($dbh); ?>
@@ -99,17 +96,14 @@ if (strlen($_SESSION['login']) == 0) {
                 <div class="col-md-9">
                     <?php group1($dbh);?>
                 </div>
-
                 <!-- Group2 Row Count -->
                 <div class="col-md-9">
                     <?php group2($dbh); ?>
                 </div>
-
                 <!-- Group3 Row Count -->
                 <div class="col-md-9">
                     <?php group3($dbh); ?>
                 </div>
-
                 <!-- Group4 Row Count -->
                 <div class="col-md-9">
                     <?php group4($dbh); ?>

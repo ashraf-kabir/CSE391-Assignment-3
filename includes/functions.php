@@ -155,5 +155,9 @@ function group4($dbh) {
     }
 }
 
+// remaining seats status
+function rem1() {
+
+}
 
 ?>
