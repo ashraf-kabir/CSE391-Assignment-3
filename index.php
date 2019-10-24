@@ -26,6 +26,9 @@ if (strlen($_SESSION['login']) == 0) {
 
             echo "<script>alert('User updated successfully');</script>";
         } else {
+            if ($rem1 <= 0 || $rem2 <= 0 || $rem3 <= 0 || $rem4 <= 0) {
+
+            }
             $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,sid=:sid,email=:email,slot=:slot WHERE `email`=:email";
 
             $query = $dbh->prepare($sql1);
@@ -199,7 +202,6 @@ if (strlen($_SESSION['login']) == 0) {
                                         <?php
                                         $sql = "SELECT * FROM slots";
                                         $query = $dbh->prepare($sql);
-                                        //$query->bindParam(':id', $id, PDO::PARAM_STR);
                                         $query->execute();
                                         $results1 = $query->fetchAll(PDO::FETCH_OBJ);
                                         if ($query->rowCount() > 0) {
