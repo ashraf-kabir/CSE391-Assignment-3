@@ -65,21 +65,21 @@ if (isset($_POST['login'])) {
         <div class="row" style="margin-top: 4%">
 
             <div class="col-md-4"></div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="account-content">
                     <br>
-                    <h2 style="font-family: sans-serif">Log in</h2>
+                    <h2 style="font-family: sans-serif; text-align: center; font-weight: bold;">Log in</h2>
                     <br>
-                    <form class="form-horizontal" method="post">
+                    <form class="form-horizontal" method="post" style="background-color: #97B1A6; padding: 20px 0 10px 0; border-width: 4px; border-style: solid; border-color: #000000; border-radius: 5px;">
                         <div class="form-group ">
-                            <div class="col-md-7">
+                            <div class="col-md-12">
                                 <input class="form-control" type="email" required="" name="email"
                                        placeholder="Email" autocomplete="on">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-7">
+                            <div class="col-md-12">
                                 <input class="form-control" type="password" name="password" required=""
                                        placeholder="Password" autocomplete="off">
                             </div>
@@ -88,7 +88,7 @@ if (isset($_POST['login'])) {
 
 
                         <div class="form-group account-btn text-center m-t-10">
-                            <div class="col-md-7">
+                            <div class="col-md-12">
                                 <button class="btn w-md btn-bordered btn-primary waves-effect waves-light"
                                         type="submit" name="login">Log In
                                 </button>
