@@ -92,37 +92,37 @@ if (isset($_POST['signup'])) {
         <div class="row" style="margin-top: 4%">
 
             <div class="col-md-4"></div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="account-content">
                     <br>
-                    <h2 style="font-family: sans-serif">Register</h2>
+                    <h1 style="font-family: sans-serif; text-align: center; font-weight: bold;">Register</h1>
                     <br>
-                    <form class="form-horizontal" method="post" name="signup">
-                        <div class="form-group ">
-                            <div class="col-md-7">
+                    <form class="form-horizontal" method="post" name="signup" style="background-color: #97B1A6; padding: 20px 0 10px 0; border-width: 4px; border-style: solid; border-color: #000000; border-radius: 5px;">
+                        <div class="form-group">
+                            <div class="col-md-12">
                                 <label for="input1">First Name</label>
                                 <input id="input1" class="form-control" type="text" required="" name="fname"
-                                       placeholder="First Name">
+                                       placeholder="Enter first name" style="">
                             </div>
                         </div>
-                        <div class="form-group ">
-                            <div class="col-md-7">
+                        <div class="form-group">
+                            <div class="col-md-12">
                                 <label for="input2">Last Name</label>
                                 <input id="input2" class="form-control" type="text" required="" name="lname"
-                                       placeholder="Last Name">
+                                       placeholder="Enter last name">
                             </div>
                         </div>
-                        <div class="form-group ">
-                            <div class="col-md-7">
+                        <div class="form-group">
+                            <div class="col-md-12">
                                 <label for="input3">Student ID</label>
                                 <input id="input3" class="form-control" type="text" required="" name="sid"
-                                       placeholder="Student ID">
+                                       placeholder="Enter Student ID">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="select1">Group</label>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <select name="select1" id="select1" required>
                                     <option value="">-- Select --</option>
                                     <?php
@@ -147,17 +147,17 @@ if (isset($_POST['signup'])) {
                             </div>
                         </div>
 
-                        <div class="form-group ">
-                            <div class="col-md-7">
+                        <div class="form-group">
+                            <div class="col-md-12">
                                 <label for="email">Email</label>
                                 <input id="email" class="form-control" type="email" required="" name="email"
-                                       placeholder="Email" onBlur="checkAvailability()">
+                                       placeholder="Enter your email" onBlur="checkAvailability()">
                                 <span id="user-availability-status" style="font-size:12px;"></span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-7">
+                            <div class="col-md-12">
                                 <label for="input5">Password</label>
                                 <input id="input5" class="form-control" type="password" name="password" required=""
                                        placeholder="Password" autocomplete="off">
@@ -165,7 +165,7 @@ if (isset($_POST['signup'])) {
                         </div>
 
                         <div class="form-group account-btn text-center m-t-10">
-                            <div class="col-md-7">
+                            <div class="col-md-12">
                                 <button class="btn w-md btn-bordered btn-primary waves-effect waves-light"
                                         type="submit" name="signup">Register
                                 </button>
@@ -174,7 +174,7 @@ if (isset($_POST['signup'])) {
                     </form>
 
                     <div class="form-group account-btn text-center m-t-10">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             Already have an account? <a href="login.php">Log in</a>
                         </div>
                     </div>
