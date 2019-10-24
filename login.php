@@ -68,19 +68,21 @@ if (isset($_POST['login'])) {
             <div class="col-md-4">
                 <div class="account-content">
                     <br>
-                    <h2 style="font-family: sans-serif; text-align: center; font-weight: bold;">Log in</h2>
+                    <h1 style="font-family: sans-serif; text-align: center; font-weight: bold;">Log in</h1>
                     <br>
                     <form class="form-horizontal" method="post" style="background-color: #97B1A6; padding: 20px 0 10px 0; border-width: 4px; border-style: solid; border-color: #000000; border-radius: 5px;">
                         <div class="form-group ">
                             <div class="col-md-12">
-                                <input class="form-control" type="email" required="" name="email"
-                                       placeholder="Email" autocomplete="on">
+                                <label for="email">Email Address</label>
+                                <input id="email" class="form-control" type="email" required="" name="email"
+                                       placeholder="Enter email address" autocomplete="on">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input class="form-control" type="password" name="password" required=""
+                                <label for="password">Password</label>
+                                <input id="password" class="form-control" type="password" name="password" required=""
                                        placeholder="Password" autocomplete="off">
                             </div>
                         </div>
@@ -95,6 +97,12 @@ if (isset($_POST['login'])) {
                             </div>
                         </div>
                     </form>
+
+                    <div class="form-group account-btn text-center m-t-10">
+                        <div class="col-md-12">
+                            Don't have an account? <a href="register.php">Register</a>
+                        </div>
+                    </div>
 
                     <div class="clearfix"></div>
 
