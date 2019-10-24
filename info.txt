@@ -2,8 +2,8 @@ Database name:
 cse390a3
 
 user panel:
-email: user@gmail.com
-password: user
+email:
+password: 12345
 
 
 admin panel:
