@@ -60,34 +60,42 @@ if (isset($_POST['login'])) {
         <div class="row" style="margin-top: 4%">
 
             <div class="col-md-4"></div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="account-content">
                     <br>
-                    <h2 style="font-family: sans-serif">Log in</h2>
+                    <h1 style="font-family: sans-serif; text-align: center; font-weight: bold;">Admin Log in</h1>
                     <br>
-                    <form class="form-horizontal" method="post">
+                    <form class="form-horizontal" method="post" style="background-color: #82D173; padding: 20px 0 10px 0; border-width: 4px; border-style: solid; border-color: #000000; border-radius: 5px;">
                         <div class="form-group ">
-                            <div class="col-md-7">
-                                <input class="form-control" type="email" required="" name="email"
-                                       placeholder="Email" autocomplete="on">
+                            <div class="col-md-12">
+                                <label for="email">Email</label>
+                                <input id="email" class="form-control" type="email" required="" name="email"
+                                       placeholder="Enter email address" autocomplete="on">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-7">
-                                <input class="form-control" type="password" name="password" required=""
+                            <div class="col-md-12">
+                                <label for="password">Password</label>
+                                <input id="password" class="form-control" type="password" name="password" required=""
                                        placeholder="Password" autocomplete="off">
                             </div>
                         </div>
 
                         <div class="form-group account-btn text-center m-t-10">
-                            <div class="col-md-7">
+                            <div class="col-md-12">
                                 <button class="btn w-md btn-bordered btn-primary waves-effect waves-light"
                                         type="submit" name="login">Log In
                                 </button>
                             </div>
                         </div>
                     </form>
+
+                    <div class="form-group account-btn text-center m-t-10">
+                        <div class="col-md-12">
+                            Not an ADMIN? <a href="../login.php">User login</a>
+                        </div>
+                    </div>
 
                     <div class="clearfix"></div>
 

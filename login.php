@@ -70,7 +70,7 @@ if (isset($_POST['login'])) {
                     <br>
                     <h1 style="font-family: sans-serif; text-align: center; font-weight: bold;">Log in</h1>
                     <br>
-                    <form class="form-horizontal" method="post" style="background-color: #97B1A6; padding: 20px 0 10px 0; border-width: 4px; border-style: solid; border-color: #000000; border-radius: 5px;">
+                    <form class="form-horizontal" method="post" style="background-color: #BDC696; padding: 20px 0 10px 0; border-width: 4px; border-style: solid; border-color: #000000; border-radius: 5px;">
                         <div class="form-group ">
                             <div class="col-md-12">
                                 <label for="email">Email Address</label>
@@ -100,7 +100,8 @@ if (isset($_POST['login'])) {
 
                     <div class="form-group account-btn text-center m-t-10">
                         <div class="col-md-12">
-                            Don't have an account? <a href="register.php">Register</a>
+                            Don't have an account? <a href="register.php">Register</a><br>
+                            Not an USER? <a href="admin/index.php">ADMIN login</a>
                         </div>
                     </div>
 
