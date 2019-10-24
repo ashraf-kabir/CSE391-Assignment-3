@@ -26,9 +26,6 @@ if (strlen($_SESSION['login']) == 0) {
 
             echo "<script>alert('User updated successfully');</script>";
         } else {
-            if ($rem1 <= 0 || $rem2 <= 0 || $rem3 <= 0 || $rem4 <= 0) {
-
-            }
             $sql1 = "UPDATE `users` SET fname=:fname,lname=:lname,sid=:sid,email=:email,slot=:slot WHERE `email`=:email";
 
             $query = $dbh->prepare($sql1);
