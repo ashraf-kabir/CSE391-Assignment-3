@@ -94,7 +94,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                 <!-- Group1 Row Count -->
                 <div class="col-md-9">
-                    <?php group1($dbh);?>
+                    <?php group1($dbh); ?>
                 </div>
                 <!-- Group2 Row Count -->
                 <div class="col-md-9">
