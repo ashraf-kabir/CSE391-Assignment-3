@@ -65,7 +65,7 @@ if (strlen($_SESSION['login']) == 0) {
         <?php include 'includes/header.php'; ?>
 
         <!-- Page Content -->
-        <div class="container">
+        <div class="container" style=" padding-bottom: 150px;">
 
             <div class="row" style="margin-top: 4%">
 
@@ -264,7 +264,7 @@ if (strlen($_SESSION['login']) == 0) {
             <!-- /.row -->
             <div class="row" style="margin-top: 25px;">
                 <div class="col-md-9"
-                     style="padding-bottom: 150px; padding-top: 30px; background-color: #EDF060; border-style: solid;">
+                     style="padding: 15px; background-color: #EDF060; border-style: solid;">
                     <h4>Seat status</h4>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="input5">Slot 1</label>
