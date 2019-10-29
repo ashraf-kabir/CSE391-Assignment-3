@@ -65,7 +65,7 @@ if (strlen($_SESSION['login']) == 0) {
         <?php include 'includes/header.php'; ?>
 
         <!-- Page Content -->
-        <div class="container" style=" padding-bottom: 150px;">
+        <div class="container" style="padding-bottom: 150px;">
 
             <div class="row" style="margin-top: 4%">
 
