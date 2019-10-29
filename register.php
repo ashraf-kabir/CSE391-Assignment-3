@@ -87,7 +87,7 @@ if (isset($_POST['signup'])) {
 
     <?php include('includes/header.php'); ?>
 
-    <div class="container">
+    <div class="container" style=" padding-bottom: 150px;">
 
         <div class="row" style="margin-top: 4%">
 
