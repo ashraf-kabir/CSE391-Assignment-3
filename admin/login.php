@@ -65,7 +65,7 @@ if (isset($_POST['login'])) {
                     <br>
                     <h1 style="font-family: sans-serif; text-align: center; font-weight: bold;">Admin Log in</h1>
                     <br>
-                    <form class="form-horizontal" method="post" style="background-color: #82D173; padding: 20px 0 10px 0; border-width: 4px; border-style: solid; border-color: #000000; border-radius: 5px;">
+                    <form class="form-horizontal" method="post" style="background-color: #939196; padding: 20px 0 10px 0; border-width: 4px; border-style: solid; border-color: #000000; border-radius: 5px;">
                         <div class="form-group ">
                             <div class="col-md-12">
                                 <label for="email">Email</label>
