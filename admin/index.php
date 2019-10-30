@@ -75,7 +75,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <h4 class="page-title">Dashboard</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
-                                            <a href="#">Alumni Management</a>
+                                            <a href="#">User Management</a>
                                         </li>
                                         <li>
                                             <a href="#">Admin</a>
