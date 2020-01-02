@@ -1,2 +1,4 @@
-# CSE391-Assignment-3
- Assignment 3
+# CSE391
+# Programming for the Internet
+
+Assignment on PHP, MySql
