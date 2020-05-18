@@ -8,3 +8,7 @@ Brac University
 Assignment on PHP, MySql
 
 question given on quesiton folder
+
+### login credential:
+email: ashrafkabir95@gmail.com
+password: 12345
